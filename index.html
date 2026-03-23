@@ -63,6 +63,23 @@
         /* Footer */
         footer { background: var(--dark-blue); color: white; padding: 40px 0; }
         .social-icons a { color: var(--primary-yellow); margin: 0 10px; font-size: 1.5rem; }
+        <style>
+    /* ... các code cũ của bạn ... */
+
+    .responsive-footer-title {
+        font-size: 1.25rem; /* Kích thước trên máy tính */
+        text-transform: uppercase;
+        line-height: 1.4;
+    }
+
+    /* Khi màn hình nhỏ hơn 576px (Điện thoại) */
+    @media (max-width: 576px) {
+        .responsive-footer-title {
+            font-size: 1rem; /* Chữ nhỏ lại một chút để không bị nhảy dòng xấu */
+            padding: 0 10px; /* Thêm khoảng cách hai bên cho thoáng */
+        }
+    }
+</style>
     </style>
 </head>
 <body>
@@ -160,7 +177,10 @@
     <footer class="text-center" id="lienhe">
         <div class="container">
             <div class="contact-info">
-    <h5 class="text-warning fw-bold mb-3">WEBSITE CHIA SẺ VỀ TOÁN - THẦY DUY ANH - GV THCS NGUYỄN AN KHƯƠNG</h5>
+    <h5 class="text-warning fw-bold mb-4 responsive-footer-title">
+    WEBSITE CHIA SẺ VỀ TOÁN<br>
+    <span class="fs-6 fw-normal">THẦY DUY ANH - THCS NGUYỄN AN KHƯƠNG</span>
+</h5>
     <p class="mb-1">
         <i class="fas fa-phone-square-alt me-2 text-warning"></i>
         <strong>0908.734.026</strong>
