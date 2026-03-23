@@ -11,6 +11,21 @@
             --primary-yellow: #FFC107; /* Màu vàng giáo dục đặc trưng */
             --dark-blue: #2c3e50;      /* Màu xanh đen tạo sự nghiêm túc */
             --light-yellow: #fff9e6;   /* Màu nền vàng nhạt */
+            /* Đảm bảo Menu thả xuống luôn nằm trên cùng */
+.dropdown-menu {
+    z-index: 9999 !important;
+}
+
+/* Loại bỏ việc các Card phía dưới chặn Menu */
+.col-md-4 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Khi Card đang mở Menu thì cho nó ưu tiên cao hơn các Card khác */
+.col-md-4:focus-within {
+    z-index: 10;
+}
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; }
         
