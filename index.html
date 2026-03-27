@@ -11,7 +11,7 @@
             --primary-yellow: #FFC107;
             --dark-blue: #2c3e50;
             --light-yellow: #fff9e6;
-            --hero-bg: #fffceb; /* Màu vàng nhạt hơn cho nền Header */
+            --hero-bg: #fffceb; /* Màu vàng nhạt cho nền Header */
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
@@ -19,12 +19,12 @@
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
 
-        /* 2. PHẦN HEADER (VÀNG NHẠT + ẢNH CHÌM) */
+        /* 2. PHẦN HEADER (VÀNG NHẠT + ẢNH CHÌM + HIỆU ỨNG CHỮ) */
         .hero-section {
             position: relative;
-            background-color: var(--hero-bg); /* Tách biệt màu nền */
+            background-color: var(--hero-bg);
             color: var(--dark-blue);
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             overflow: hidden;
             border-bottom: 2px solid rgba(255, 193, 7, 0.3);
@@ -37,29 +37,44 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Sử dụng ảnh nền có sẵn hoặc pattern toán học mờ */
+            /* Sử dụng ảnh nền pattern toán học mờ */
             background-image: url('https://www.transparenttextures.com/patterns/math.png'); 
-            opacity: 0.08; /* Làm mờ ảnh chìm (chỉ hiện 8%) */
+            opacity: 0.1; /* Làm mờ ảnh chìm (chỉ hiện 10%) */
             pointer-events: none;
+            z-index: 1;
         }
 
-        /* Điều chỉnh chữ KHƠI NGUỒN TƯ DUY cho điện thoại */
+        /* Hiệu ứng lấp lánh cho chữ KHƠI NGUỒN TƯ DUY */
         .hero-title {
-            font-weight: 800;
+            font-size: 4rem; /* Cỡ chữ mặc định trên máy tính */
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(to right, #2c3e50 20%, #FFC107 40%, #FFC107 60%, #2c3e50 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            z-index: 2;
             word-wrap: break-word; /* Tự xuống dòng khi quá dài */
+            line-height: 1.2;
         }
 
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Điều chỉnh chữ cho điện thoại */
         @media (max-width: 576px) {
-            /* Khi xem trên điện thoại (màn hình < 576px) */
             .hero-title {
-                font-size: 2.2rem; /* Thu nhỏ cỡ chữ một chút */
+                font-size: 2.5rem; /* Thu nhỏ cỡ chữ trên điện thoại */
                 padding: 0 15px; /* Thêm khoảng cách hai bên */
             }
             .hero-section {
-                padding: 60px 0; /* Thu nhỏ khoảng cách trên dưới */
+                padding: 70px 0; /* Thu nhỏ khoảng cách trên dưới */
             }
         }
 
@@ -80,183 +95,6 @@
         .responsive-footer-title { font-size: 1.25rem; text-transform: uppercase; line-height: 1.4; }
         @media (max-width: 576px) { .responsive-footer-title { font-size: 1rem; } }
 
-        /* 5. NÚT CHẤM ĐIỂM NỔI */
-        .btn-check-float {
-            position: fixed; bottom: 25px; right: 25px; z-index: 1000;
-            background-color: var(--primary-yellow); color: var(--dark-blue);
-            border: 2px solid #fff; border-radius: 50px; padding: 12px 20px; font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tailieu">Kho Tài Liệu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#video">Bài Giảng</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero-section">
-        <div class="container position-relative" style="z-index: 2;">
-            <h1 class="display-4 hero-title">KHƠI NGUỒN TƯ DUY</h1>
-            <p class="lead fw-normal">Học toán không khó - Chỉ cần đúng phương pháp.</p>
-        </div>
-    </header>
-
-    <div class="container my-5 py-5" id="tailieu">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-user-graduate fa-3x"></i></div>
-                        <h5 class="fw-bold">Tuyển sinh lớp 10</h5>
-                        <div class="dropdown">
-                            <button class="btn btn-download w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown">Xem chi tiết</button>
-                            <ul class="dropdown-menu w-100 shadow">
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯƯỜNG SỐ 1</a></li>
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯƯỜNG SỐ 2</a></li>
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><span class="dropdown-item-text text-muted small italic">Cập nhật: <span class="auto-date"></span></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-calculator fa-3x"></i></div>
-                        <h5 class="fw-bold">Bồi dưỡng HSG 9</h5>
-                        <button class="btn btn-download w-100 mt-2">Đang cập nhật...</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-trophy fa-3x"></i></div>
-                        <h5 class="fw-bold">VIOLYMPIC TOÁN</h5>
-                        <button class="btn btn-download w-100 mt-2">Đang cập nhật...</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="video-box" id="video">
-        <div class="container text-center">
-            <h2 class="text-warning mb-4 fw-bold">BÀI GIẢNG VIDEO</h2>
-            <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-warning border-3 overflow-hidden mx-auto" style="max-width: 850px;">
-                <iframe src="https://www.youtube.com/embed/K6NyiBt8JyQ" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <footer class="text-center">
-        <div class="container">
-            <h5 class="text-warning fw-bold mb-4 responsive-footer-title">
-                WEBSITE CHIA SẺ VỀ TOÁN<br>
-                <span class="fs-6 fw-bold">THẦY DUY ANH - THCS NGUYỄN AN KHƯƠNG</span>
-            </h5>
-            <p><i class="fas fa-phone-alt me-2 text-warning"></i>0908.734.026 | <i class="fas fa-envelope me-2 text-warning"></i>nguyenphamduyanh@gmail.com</p>
-            <p class="fst-italic my-4" style="font-size: 1.1rem; opacity: 0.8;">"Học thì không khó - Khó khi không học"</p>
-            <hr class="bg-secondary opacity-25">
-            <p class="small text-secondary mb-0">© 2026 - All rights reserved.</p>
-        </div>
-    </footer>
-
-    <button class="btn-check-float" data-bs-toggle="modal" data-bs-target="#checkModal">
-        <i class="fas fa-spell-check me-2"></i>DÒ ĐÁP ÁN
-    </button>
-
-    <div class="modal fade" id="checkModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-warning border-3">
-                <div class="modal-header bg-warning">
-                    <h5 class="modal-title fw-bold text-dark">DÒ ĐÁP ÁN NHANH</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <select id="tenDe" class="form-select mb-3 border-warning fw-bold">
-                        <option value="" disabled selected>-- Chọn đề thi --</option>
-                        <option value="Đề 1">Đề ôn tập số 1</option>
-                        <option value="Đề 2">Đề tăng cường số 1</option>
-                    </select>
-                    <table class="table table-sm table-bordered">
-                        <thead><tr><th>Câu</th><th>Ý a</th><th>Ý b</th></tr></thead>
-                        <tbody id="answerSheet"></tbody>
-                    </table>
-                    <div id="summaryResult" class="alert d-none fw-bold mt-2"></div>
-                    <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">CHẤM ĐIỂM</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script>
-        // 1. Tự động lấy ngày hiện tại
-        document.querySelectorAll('.auto-date').forEach(el => {
-            const d = new Date();
-            el.innerText = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
-        });
-
-        // 2. Tạo bảng nhập đáp án 6 câu
-        const tbody = document.getElementById('answerSheet');
-        for (let i = 1; i <= 6; i++) {
-            tbody.innerHTML += `
-                <tr>
-                    <td class="fw-bold">${i}</td>
-                    <td><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}a"><span id="res-${i}a"></span></td>
-                    <td><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}b"><span id="res-${i}b"></span></td>
-                </tr>
-            `;
-        }
-
-        // 3. Sửa lỗi link mobile & Chấm điểm
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open(this.getAttribute('href'), '_blank');
-            });
-        });
-
-        function checkAllAnswers() {
-            const tende = document.getElementById('tenDe').value;
-            const scriptUrl = "URL_APPS_SCRIPT_CỦA_BẠN"; // Dán link Apps Script của bạn vào đây
-            if(!tende) return alert("Chọn đề đã em ơi!");
-
-            document.querySelectorAll('.user-ans').forEach(input => {
-                const maCau = input.dataset.cau;
-                const ans = input.value;
-                if(!ans) return;
-                fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${ans}`)
-                .then(r => r.text())
-                .then(data => {
-                    const resSpan = document.getElementById(`res-${maCau}`);
-                    if(data === "TRUE") {
-                        resSpan.innerHTML = '<i class="fas fa-check text-success ms-1"></i>';
-                        input.style.border = "2px solid green";
-                    } else {
-                        resSpan.innerHTML = '<i class="fas fa-times text-danger ms-1"></i>';
-                        input.style.border = "2px solid red";
-                    }
-                });
-            });
-        }
-    </script>
-</body>
-</html>
+        /* Hiệu ứng chữ chạy (Marquee) cho câu châm ngôn */
+        .marquee-container {
+            overflow:
