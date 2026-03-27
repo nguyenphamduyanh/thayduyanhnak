@@ -11,96 +11,76 @@
             --primary-yellow: #FFC107;
             --dark-blue: #2c3e50;
             --light-yellow: #fff9e6;
+            --hero-bg: #fffceb; /* Màu vàng nhạt hơn cho nền Header */
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        /* Navbar */
+        /* 1. THANH MENU (VÀNG ĐẬM) */
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
 
-        /* --- HIỆU ỨNG HERO SECTION MỚI --- */
+        /* 2. PHẦN HEADER (VÀNG NHẠT + ẢNH CHÌM) */
         .hero-section {
             position: relative;
-            background: linear-gradient(135deg, rgba(255, 220, 100, 0.95), rgba(255, 245, 200, 0.85));
+            background-color: var(--hero-bg); /* Tách biệt màu nền */
             color: var(--dark-blue);
-            padding: 120px 0;
+            padding: 80px 0;
             text-align: center;
             overflow: hidden;
+            border-bottom: 2px solid rgba(255, 193, 7, 0.3);
+            /* Đường cong nhẹ ở cuối */
+            clip-path: ellipse(150% 100% at 50% 0%);
         }
 
-        /* Hiệu ứng nền sóng lượn (Wave) */
-        .hero-section::after {
+        /* Ảnh chìm toán học (Watermark) */
+        .hero-section::before {
             content: "";
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background: white;
-            clip-path: polygon(0% 50%, 25% 0%, 50% 50%, 75% 100%, 100% 50%, 100% 100%, 0% 100%);
-        }
-
-        /* Hiệu ứng lấp lánh cho chữ KHƠI NGUỒN TƯ DUY */
-        .sparkle-text {
-            font-size: 4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-            background: linear-gradient(to right, #2c3e50 20%, #FFC107 40%, #FFC107 60%, #2c3e50 80%);
-            background-size: 200% auto;
-            color: #000;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* Các đốm sáng bay lơ lửng xung quanh */
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Sử dụng ảnh nền có sẵn hoặc pattern toán học mờ */
+            background-image: url('https://www.transparenttextures.com/patterns/math.png'); 
+            opacity: 0.08; /* Làm mờ ảnh chìm (chỉ hiện 8%) */
             pointer-events: none;
-            animation: float 6s infinite ease-in-out;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            50% { transform: translateY(-50px) translateX(20px); opacity: 1; }
+        /* Điều chỉnh chữ KHƠI NGUỒN TƯ DUY cho điện thoại */
+        .hero-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            word-wrap: break-word; /* Tự xuống dòng khi quá dài */
         }
 
-        /* Card & Dropdown */
+        @media (max-width: 576px) {
+            /* Khi xem trên điện thoại (màn hình < 576px) */
+            .hero-title {
+                font-size: 2.2rem; /* Thu nhỏ cỡ chữ một chút */
+                padding: 0 15px; /* Thêm khoảng cách hai bên */
+            }
+            .hero-section {
+                padding: 60px 0; /* Thu nhỏ khoảng cách trên dưới */
+            }
+        }
+
+        /* 3. NỘI DUNG CHÍNH (CARD & LAYOUT) */
         .col-md-4 { position: relative; z-index: 1; }
         .col-md-4:focus-within { z-index: 10; }
         .card { border: 2px solid var(--primary-yellow); border-radius: 20px; background-color: var(--light-yellow); transition: 0.3s; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(255, 193, 7, 0.3); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn-download { background-color: var(--dark-blue); color: #fff; border-radius: 50px; font-weight: 600; }
         
         .dropdown-menu { z-index: 99999 !important; border-radius: 12px; border: 1px solid var(--primary-yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .dropdown-item { padding: 12px 20px !important; display: flex; align-items: center; font-weight: 500; cursor: pointer; }
         .dropdown-item:hover { background-color: var(--primary-yellow); color: var(--dark-blue); }
 
-        /* Footer & Marquee */
+        /* 4. VIDEO & FOOTER (XANH ĐEN) */
+        .video-box { background-color: var(--dark-blue); padding: 50px 0; color: white; }
         footer { background: var(--dark-blue); color: white; padding: 40px 0; }
-        .marquee-container { overflow: hidden; width: 100%; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1); }
-        .marquee-text {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-            font-style: italic;
-            opacity: 0.8;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        .responsive-footer-title { font-size: 1.25rem; text-transform: uppercase; line-height: 1.4; }
+        @media (max-width: 576px) { .responsive-footer-title { font-size: 1rem; } }
 
-        /* Nút dò đáp án nổi */
+        /* 5. NÚT CHẤM ĐIỂM NỔI */
         .btn-check-float {
             position: fixed; bottom: 25px; right: 25px; z-index: 1000;
             background-color: var(--primary-yellow); color: var(--dark-blue);
@@ -128,14 +108,10 @@
     </nav>
 
     <header class="hero-section">
-        <div class="container">
-            <h1 class="sparkle-text">KHƠI NGUỒN TƯ DUY</h1>
-            <p class="lead fw-bold mt-2">Học toán không khó - Chỉ cần đúng phương pháp.</p>
+        <div class="container position-relative" style="z-index: 2;">
+            <h1 class="display-4 hero-title">KHƠI NGUỒN TƯ DUY</h1>
+            <p class="lead fw-normal">Học toán không khó - Chỉ cần đúng phương pháp.</p>
         </div>
-        <div class="particle" style="top: 20%; left: 10%; width: 8px; height: 8px; animation-delay: 0s;"></div>
-        <div class="particle" style="top: 50%; left: 15%; width: 5px; height: 5px; animation-delay: 2s;"></div>
-        <div class="particle" style="top: 30%; right: 20%; width: 10px; height: 10px; animation-delay: 1s;"></div>
-        <div class="particle" style="top: 70%; right: 10%; width: 6px; height: 6px; animation-delay: 3s;"></div>
     </header>
 
     <div class="container my-5 py-5" id="tailieu">
@@ -148,8 +124,8 @@
                         <div class="dropdown">
                             <button class="btn btn-download w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown">Xem chi tiết</button>
                             <ul class="dropdown-menu w-100 shadow">
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
+                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯƯỜNG SỐ 1</a></li>
+                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯƯỜNG SỐ 2</a></li>
                                 <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><span class="dropdown-item-text text-muted small italic">Cập nhật: <span class="auto-date"></span></span></li>
@@ -179,9 +155,9 @@
         </div>
     </div>
 
-    <div class="video-box py-5" id="video" style="background-color: var(--dark-blue);">
-        <div class="container text-center text-white">
-            <h2 class="text-warning mb-4 fw-bold">BÀI GIẢNG TRỰC TUYẾN</h2>
+    <div class="video-box" id="video">
+        <div class="container text-center">
+            <h2 class="text-warning mb-4 fw-bold">BÀI GIẢNG VIDEO</h2>
             <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-warning border-3 overflow-hidden mx-auto" style="max-width: 850px;">
                 <iframe src="https://www.youtube.com/embed/K6NyiBt8JyQ" allowfullscreen></iframe>
             </div>
@@ -195,14 +171,9 @@
                 <span class="fs-6 fw-bold">THẦY DUY ANH - THCS NGUYỄN AN KHƯƠNG</span>
             </h5>
             <p><i class="fas fa-phone-alt me-2 text-warning"></i>0908.734.026 | <i class="fas fa-envelope me-2 text-warning"></i>nguyenphamduyanh@gmail.com</p>
-            
-            <div class="my-4 marquee-container">
-                <p class="text-light marquee-text mb-0">
-                    "Học thì không khó - Khó khi không học"
-                </p>
-            </div>
+            <p class="fst-italic my-4" style="font-size: 1.1rem; opacity: 0.8;">"Học thì không khó - Khó khi không học"</p>
             <hr class="bg-secondary opacity-25">
-            <p class="small text-secondary mb-0">© 2026 - Website TOÁN THẦY DUY ANH.</p>
+            <p class="small text-secondary mb-0">© 2026 - All rights reserved.</p>
         </div>
     </footer>
 
@@ -214,7 +185,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-warning border-3">
                 <div class="modal-header bg-warning">
-                    <h5 class="modal-title fw-bold">DÒ ĐÁP ÁN NHANH</h5>
+                    <h5 class="modal-title fw-bold text-dark">DÒ ĐÁP ÁN NHANH</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center">
@@ -223,7 +194,7 @@
                         <option value="Đề 1">Đề ôn tập số 1</option>
                         <option value="Đề 2">Đề tăng cường số 1</option>
                     </select>
-                    <table class="table table-sm table-bordered align-middle">
+                    <table class="table table-sm table-bordered">
                         <thead><tr><th>Câu</th><th>Ý a</th><th>Ý b</th></tr></thead>
                         <tbody id="answerSheet"></tbody>
                     </table>
@@ -237,13 +208,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
-        // Tự động cập nhật ngày
+        // 1. Tự động lấy ngày hiện tại
         document.querySelectorAll('.auto-date').forEach(el => {
             const d = new Date();
             el.innerText = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
         });
 
-        // Tạo bảng 6 câu
+        // 2. Tạo bảng nhập đáp án 6 câu
         const tbody = document.getElementById('answerSheet');
         for (let i = 1; i <= 6; i++) {
             tbody.innerHTML += `
@@ -255,7 +226,7 @@
             `;
         }
 
-        // Fix link mobile
+        // 3. Sửa lỗi link mobile & Chấm điểm
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -278,10 +249,10 @@
                     const resSpan = document.getElementById(`res-${maCau}`);
                     if(data === "TRUE") {
                         resSpan.innerHTML = '<i class="fas fa-check text-success ms-1"></i>';
-                        input.style.borderColor = "green";
+                        input.style.border = "2px solid green";
                     } else {
                         resSpan.innerHTML = '<i class="fas fa-times text-danger ms-1"></i>';
-                        input.style.borderColor = "red";
+                        input.style.border = "2px solid red";
                     }
                 });
             });
