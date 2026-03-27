@@ -10,114 +10,120 @@
         :root {
             --primary-yellow: #FFC107;
             --dark-blue: #2c3e50;
-            --light-yellow: #fff9e6;
-            --hero-bg: #fffceb; /* Màu vàng nhạt cho nền Header */
+            --light-blue-card: #e3f2fd; /* Màu xanh lợt cho Card */
+            --accent-orange: #ff5722;   /* Màu tương phản cho nút */
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        /* 1. THANH MENU (VÀNG ĐẬM) */
+        /* Navbar */
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
 
-        /* 2. PHẦN HEADER (VÀNG NHẠT + ẢNH CHÌM + HIỆU ỨNG CHỮ) */
+        /* HEADER "KHƠI NGUỒN TƯ DUY" VỚI ẢNH TOÁN HỌC CHÌM */
         .hero-section {
             position: relative;
-            background-color: var(--hero-bg);
-            color: var(--dark-blue);
+            background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
             padding: 100px 0;
             text-align: center;
             overflow: hidden;
-            border-bottom: 2px solid rgba(255, 193, 7, 0.3);
-            /* Đường cong nhẹ ở cuối */
-            clip-path: ellipse(150% 100% at 50% 0%);
+            border-bottom: 3px solid var(--primary-yellow);
         }
 
-        /* Ảnh chìm toán học (Watermark) */
+        /* Lớp ảnh chìm chứa máy tính, compa, hình tròn, công thức Viete */
         .hero-section::before {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Sử dụng ảnh nền pattern toán học mờ */
-            background-image: url('https://www.transparenttextures.com/patterns/math.png'); 
-            opacity: 0.1; /* Làm mờ ảnh chìm (chỉ hiện 10%) */
-            pointer-events: none;
+            background-image: 
+                url('https://www.transparenttextures.com/patterns/math.png'); /* Pattern toán tổng hợp */
+            opacity: 0.15;
             z-index: 1;
         }
 
-        /* Hiệu ứng lấp lánh cho chữ KHƠI NGUỒN TƯ DUY */
+        /* Thêm các icon toán học bay chìm phía sau */
+        .math-icon {
+            position: absolute;
+            color: var(--primary-yellow);
+            opacity: 0.1;
+            z-index: 1;
+            font-size: 3rem;
+        }
+
+        /* Chữ lấp lánh tự điều chỉnh cỡ theo thiết bị */
         .hero-title {
-            font-size: 4rem; /* Cỡ chữ mặc định trên máy tính */
             font-weight: 900;
             text-transform: uppercase;
             position: relative;
+            z-index: 2;
             display: inline-block;
-            background: linear-gradient(to right, #2c3e50 20%, #FFC107 40%, #FFC107 60%, #2c3e50 80%);
+            background: linear-gradient(to right, #2c3e50 20%, #FFC107 40%, #FF5722 60%, #2c3e50 80%);
             background-size: 200% auto;
-            color: #000;
-            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shine 4s linear infinite;
-            z-index: 2;
-            word-wrap: break-word; /* Tự xuống dòng khi quá dài */
+            /* Cỡ chữ linh hoạt (Responsive Font Size) */
+            font-size: calc(1.8rem + 2.5vw); 
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         @keyframes shine {
             to { background-position: 200% center; }
         }
 
-        /* Điều chỉnh chữ cho điện thoại */
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2.5rem; /* Thu nhỏ cỡ chữ trên điện thoại */
-                padding: 0 15px; /* Thêm khoảng cách hai bên */
-            }
-            .hero-section {
-                padding: 70px 0; /* Thu nhỏ khoảng cách trên dưới */
-            }
+        /* THIẾT KẾ CARD XANH LỢT */
+        .card-custom {
+            border: none;
+            border-radius: 20px;
+            background-color: var(--light-blue-card); /* Nền xanh lợt */
+            transition: 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2);
         }
 
-        /* 3. NỘI DUNG CHÍNH (CARD & LAYOUT) */
-        .col-md-4 { position: relative; z-index: 1; }
-        .col-md-4:focus-within { z-index: 10; }
-        .card { border: 2px solid var(--primary-yellow); border-radius: 20px; background-color: var(--light-yellow); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-download { background-color: var(--dark-blue); color: #fff; border-radius: 50px; font-weight: 600; }
+        /* Nút màu tương phản dễ nhìn */
+        .btn-action {
+            background-color: var(--dark-blue);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+        .btn-action:hover {
+            background-color: #fff;
+            color: var(--dark-blue);
+            border: 2px solid var(--dark-blue);
+        }
         
-        .dropdown-menu { z-index: 99999 !important; border-radius: 12px; border: 1px solid var(--primary-yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .dropdown-item { padding: 12px 20px !important; display: flex; align-items: center; font-weight: 500; cursor: pointer; }
-        .dropdown-item:hover { background-color: var(--primary-yellow); color: var(--dark-blue); }
+        /* Dropdown chuẩn */
+        .dropdown-menu { z-index: 99999 !important; border-radius: 12px; border: 1px solid #dee2e6; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .dropdown-item { padding: 12px 20px !important; font-weight: 500; }
+        .dropdown-item:hover { background-color: var(--light-blue-card); color: var(--dark-blue); }
 
-        /* 4. VIDEO & FOOTER (XANH ĐEN) */
-        .video-box { background-color: var(--dark-blue); padding: 50px 0; color: white; }
+        /* Video & Footer */
+        .video-box { background-color: var(--dark-blue); padding: 50px 0; }
         footer { background: var(--dark-blue); color: white; padding: 40px 0; }
-        .responsive-footer-title { font-size: 1.25rem; text-transform: uppercase; line-height: 1.4; }
-        @media (max-width: 576px) { .responsive-footer-title { font-size: 1rem; } }
 
-        /* Hiệu ứng chữ chạy (Marquee) cho câu châm ngôn */
-        .marquee-container {
-            overflow: hidden;
-            width: 100%;
-            background: rgba(0,0,0,0.2);
-            padding: 10px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        /* Chữ chạy Footer */
+        .marquee-container { overflow: hidden; width: 100%; padding: 10px 0; }
         .marquee-text {
             display: inline-block;
             white-space: nowrap;
-            animation: marquee 20s linear infinite; /* Chữ chạy trong 20 giây */
+            animation: marquee 20s linear infinite;
             font-style: italic;
-            font-size: 1.1rem;
             opacity: 0.9;
-            color: #fff;
         }
         @keyframes marquee {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
 
-        /* 5. NÚT CHẤM ĐIỂM NỔI */
+        /* Nút dò đáp án nổi */
         .btn-check-float {
             position: fixed; bottom: 25px; right: 25px; z-index: 1000;
             background-color: var(--primary-yellow); color: var(--dark-blue);
@@ -130,7 +136,7 @@
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
+            <a class="navbar-brand" href="#"><i class="fas fa-square-root-alt me-2"></i>TOÁN THẦY DUY ANH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -145,53 +151,45 @@
     </nav>
 
     <header class="hero-section">
-        <div class="container">
+        <i class="fas fa-calculator math-icon" style="top: 10%; left: 10%; transform: rotate(-15deg);"></i>
+        <i class="fas fa-circle-notch math-icon" style="bottom: 20%; left: 15%; font-size: 5rem;"></i>
+        <i class="fas fa-drafting-compass math-icon" style="top: 15%; right: 15%; transform: rotate(20deg);"></i>
+        <div class="container position-relative" style="z-index: 5;">
             <h1 class="hero-title">KHƠI NGUỒN TƯ DUY</h1>
-            <p class="lead fw-normal mt-2">Học toán không khó - Chỉ cần đúng phương pháp.</p>
+            <p class="mt-3 fs-5 fw-bold text-secondary">x₁ + x₂ = -b/a  |  x₁x₂ = c/a</p>
         </div>
     </header>
 
     <div class="container my-5 py-5" id="tailieu">
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-warning">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-user-graduate fa-3x"></i></div>
-                        <h5 class="fw-bold">Tuyển sinh lớp 10</h5>
-                        <p class="text-muted small">Thông tin, tài liệu và đề thi.</p>
-                        <div class="dropdown">
-                            <button class="btn btn-download w-100 mt-2 dropdown-toggle" type="button" id="dropdownLop10" data-bs-toggle="dropdown" aria-expanded="false">
-                                Xem chi tiết
-                            </button>
-                            <ul class="dropdown-menu w-100 shadow" aria-labelledby="dropdownLop10">
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
-                                <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><span class="dropdown-item-text text-muted" style="font-size: 0.75rem; font-style: italic;">Cập nhật: <span class="auto-date"></span></span></li>
-                            </ul>
-                        </div>
+                <div class="card card-custom h-100 shadow-sm p-4 text-center">
+                    <div class="mb-3 text-primary"><i class="fas fa-graduation-cap fa-3x"></i></div>
+                    <h5 class="fw-bold">Tuyển sinh lớp 10</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-action w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown">Xem chi tiết</button>
+                        <ul class="dropdown-menu w-100 shadow">
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><span class="dropdown-item-text text-muted small italic">Cập nhật: <span class="auto-date"></span></span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-calculator fa-3x"></i></div>
-                        <h5 class="fw-bold">Học sinh giỏi lớp 9</h5>
-                        <p class="text-muted small">Đề thi HSG các cấp.</p>
-                        <button class="btn btn-download w-100 mt-2">Đang cập nhật...</button>
-                    </div>
+                <div class="card card-custom h-100 shadow-sm p-4 text-center">
+                    <div class="mb-3 text-primary"><i class="fas fa-atom fa-3x"></i></div>
+                    <h5 class="fw-bold">Học sinh giỏi lớp 9</h5>
+                    <button class="btn btn-action w-100 mt-2">Đang cập nhật...</button>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3 text-warning"><i class="fas fa-pencil-alt fa-3x"></i></div>
-                        <h5 class="fw-bold">VIOLYMPIC TOÁN</h5>
-                        <p class="text-muted small">Luyện thi Violympic.</p>
-                        <button class="btn btn-download w-100 mt-2">Đang cập nhật...</button>
-                    </div>
+                <div class="card card-custom h-100 shadow-sm p-4 text-center">
+                    <div class="mb-3 text-primary"><i class="fas fa-medal fa-3x"></i></div>
+                    <h5 class="fw-bold">VIOLYMPIC TOÁN</h5>
+                    <button class="btn btn-action w-100 mt-2">Đang cập nhật...</button>
                 </div>
             </div>
         </div>
@@ -199,8 +197,8 @@
 
     <div class="video-box" id="video">
         <div class="container text-center">
-            <h2 class="text-warning mb-4 fw-bold">BÀI GIẢNG TRỰC TUYẾN</h2>
-            <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-warning border-3 overflow-hidden mx-auto" style="max-width: 850px;">
+            <h2 class="text-warning mb-4 fw-bold">BÀI GIẢNG VIDEO</h2>
+            <div class="ratio ratio-16x9 rounded-4 shadow-lg border border-warning border-3 overflow-hidden mx-auto" style="max-width: 800px;">
                 <iframe src="https://www.youtube.com/embed/K6NyiBt8JyQ" allowfullscreen></iframe>
             </div>
         </div>
@@ -213,13 +211,11 @@
                 <span class="fs-6 fw-bold">THẦY DUY ANH - THCS NGUYỄN AN KHƯƠNG</span>
             </h5>
             <p><i class="fas fa-phone-alt me-2 text-warning"></i>0908.734.026 | <i class="fas fa-envelope me-2 text-warning"></i>nguyenphamduyanh@gmail.com</p>
-            
             <div class="my-4 marquee-container">
-                <p class="marquee-text mb-0">"Học thì không khó - Khó khi không học"</p>
+                <p class="marquee-text mb-0 text-light">"Học thì không khó - Khó khi không học"</p>
             </div>
-
             <hr class="bg-secondary opacity-25">
-            <p class="small text-secondary mb-0">© 2026 - Website TOÁN THẦY DUY ANH.</p>
+            <p class="small text-secondary mb-0">© 2026 - All rights reserved.</p>
         </div>
     </footer>
 
@@ -231,7 +227,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-warning border-3">
                 <div class="modal-header bg-warning">
-                    <h5 class="modal-title fw-bold text-dark">DÒ ĐÁP ÁN NHANH</h5>
+                    <h5 class="modal-title fw-bold">DÒ ĐÁP ÁN NHANH</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center">
@@ -254,13 +250,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
-        // 1. Tự động lấy ngày hiện tại
+        // 1. Ngày hiện tại
         document.querySelectorAll('.auto-date').forEach(el => {
             const d = new Date();
             el.innerText = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
         });
 
-        // 2. Tạo bảng nhập đáp án 6 câu
+        // 2. Bảng 6 câu
         const tbody = document.getElementById('answerSheet');
         for (let i = 1; i <= 6; i++) {
             tbody.innerHTML += `
@@ -272,7 +268,7 @@
             `;
         }
 
-        // 3. Sửa lỗi link mobile & Chấm điểm
+        // 3. Sửa lỗi di động & Chấm điểm
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -282,8 +278,8 @@
 
         function checkAllAnswers() {
             const tende = document.getElementById('tenDe').value;
-            const scriptUrl = "URL_APPS_SCRIPT_CỦA_BẠN"; // Dán link Apps Script của bạn vào đây
-            if(!tende) return alert("Chọn đề đã em ơi!");
+            const scriptUrl = "URL_APPS_SCRIPT_CỦA_BẠN"; // Dán link thật của bạn vào đây
+            if(!tende) return alert("Em chọn đề trước nhé!");
 
             document.querySelectorAll('.user-ans').forEach(input => {
                 const maCau = input.dataset.cau;
@@ -295,10 +291,10 @@
                     const resSpan = document.getElementById(`res-${maCau}`);
                     if(data === "TRUE") {
                         resSpan.innerHTML = '<i class="fas fa-check text-success ms-1"></i>';
-                        input.style.border = "2px solid green";
+                        input.style.borderColor = "green";
                     } else {
                         resSpan.innerHTML = '<i class="fas fa-times text-danger ms-1"></i>';
-                        input.style.border = "2px solid red";
+                        input.style.borderColor = "red";
                     }
                 });
             });
