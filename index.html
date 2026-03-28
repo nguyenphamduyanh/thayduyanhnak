@@ -10,9 +10,9 @@
     <style>
         /* --- CẤU HÌNH MÀU SẮC CHỦ ĐẠO --- */
         :root {
-            --primary-yellow: #FFC107; /* Màu vàng thương hiệu */
-            --dark-blue: #2c3e50;      /* Màu xanh đen đậm */
-            --light-blue-card: #e3f2fd; /* Màu xanh lợt cho các thẻ bài tập */
+            --primary-yellow: #FFC107;
+            --dark-blue: #2c3e50;
+            --light-blue-card: #e3f2fd; 
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
@@ -39,7 +39,7 @@
             animation: float-and-rotate 8s infinite ease-in-out;
         }
 
-        /* Hiệu ứng bay lơ lửng và xoay nhẹ cho icon */
+        /* Hiệu ứng bay lơ lửng cho icon */
         @keyframes float-and-rotate {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(15deg); }
@@ -63,15 +63,14 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* Thiết lập xuống dòng cho chữ tiêu đề trên điện thoại */
+        /* Xử lý xuống dòng tiêu đề trên điện thoại */
         .title-break { display: inline; }
         @media (max-width: 576px) {
-            .title-break { display: block; } /* Điện thoại sẽ ngắt dòng */
+            .title-break { display: block; } 
             .hero-title { font-size: 3rem; }
             .hero-section { padding: 60px 0; }
         }
 
-        /* Dòng slogan dưới tiêu đề */
         .sub-slogan {
             font-style: italic;
             color: var(--dark-blue);
@@ -93,7 +92,6 @@
         }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
 
-        /* Nút bấm trong Card */
         .btn-action {
             background-color: var(--dark-blue);
             color: #fff;
@@ -103,24 +101,54 @@
         }
         .btn-action:hover { background-color: #000; color: var(--primary-yellow); }
         
-        /* Hiệu ứng nền xanh dương khi rê chuột vào mục tài liệu */
-        .dropdown-menu { border-radius: 12px; overflow: hidden; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .dropdown-item { transition: all 0.3s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
-        .dropdown-item:hover { background-color: #007bff !important; color: white !important; padding-left: 1.5rem; }
+        /* Hiệu ứng nền xanh khi rê chuột vào mục tài liệu */
+        .dropdown-menu {
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+            padding: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .dropdown-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-bottom: 2px;
+            padding: 10px 15px;
+        }
+        .dropdown-item:hover {
+            background-color: #007bff !important;
+            color: white !important;
+            padding-left: 1.5rem;
+        }
         .dropdown-item:hover i { color: white !important; }
 
-        /* Kiểu chữ ngày cập nhật */
-        .update-date { font-style: italic !important; text-align: center; display: block; font-size: 0.85rem; color: #6c757d; padding: 10px 0; }
+        /* Ngày cập nhật in nghiêng */
+        .update-date {
+            font-style: italic !important;
+            text-align: center;
+            display: block;
+            font-size: 0.85rem;
+            color: #6c757d;
+            padding: 10px 0;
+        }
 
         /* --- VIDEO & FOOTER --- */
         .video-box { background-color: var(--dark-blue); padding: 50px 0; }
         footer { background: var(--dark-blue); color: white; padding: 40px 0; }
 
-        /* Hiệu ứng chữ chạy ở cuối trang */
-        .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; font-style: italic; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        /* Hiệu ứng chữ chạy cuối trang */
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            font-style: italic;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
 
-        /* Nút tròn Dò đáp án nổi trên màn hình */
+        /* Nút Dò đáp án nổi */
         .btn-check-float {
             position: fixed; bottom: 25px; right: 25px; z-index: 1000;
             background-color: var(--primary-yellow); color: var(--dark-blue);
@@ -152,8 +180,9 @@
         <i class="fas fa-drafting-compass math-bg-icon" style="top: 15%; right: 8%; font-size: 5rem; animation-delay: 1s;"></i>
         <i class="fas fa-circle-notch math-bg-icon" style="bottom: 10%; left: 12%; font-size: 7rem; animation-delay: 2s;"></i>
         <i class="fas fa-square-root-alt math-bg-icon" style="bottom: 15%; right: 10%; font-size: 5.5rem; animation-delay: 3s;"></i>
-        
-        <div class="container text-center">
+        <i class="fas fa-infinity math-bg-icon" style="top: 50%; left: 50%; font-size: 4rem; opacity: 0.05;"></i>
+
+        <div class="container">
             <h1 class="hero-title">
                 <span class="title-break">KHƠI NGUỒN</span> 
                 <span class="title-break">TƯ DUY</span>
@@ -255,25 +284,45 @@
     </div>
 
     <script>
-        // Tạo bảng nhập liệu tự động (Câu 2-5 nhập số, Câu 6 có 2 ý)
         const tbody = document.getElementById('answerSheet');
+        
+        /* Tạo hàng cho các câu 2, 3, 4, 5 (Chỉ có 1 ô nhập số) */
         for (let i = 2; i <= 5; i++) {
             tbody.innerHTML += `
                 <tr>
                     <td class="fw-bold">${i}</td>
-                    <td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}" placeholder="Nhập số"><span id="res-${i}"></span></td>
+                    <td colspan="2">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}" placeholder="Nhập số">
+                            <span id="res-${i}" class="ms-1"></span>
+                        </div>
+                    </td>
                 </tr>
             `;
         }
+
+        /* Tạo hàng đặc biệt cho câu 6 (Ý a nhập chữ, Ý b nhập số) */
         tbody.innerHTML += `
             <tr>
                 <td class="fw-bold">6</td>
-                <td><small>Ý a (Chữ)</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a"><span id="res-6a"></span></td>
-                <td><small>Ý b (Số)</small><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b"><span id="res-6b"></span></td>
+                <td>
+                    <div class="d-flex flex-column align-items-center">
+                        <small class="text-muted">Ý a (Chữ)</small>
+                        <input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a" placeholder="Chữ">
+                        <span id="res-6a"></span>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex flex-column align-items-center">
+                        <small class="text-muted">Ý b (Số)</small>
+                        <input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b" placeholder="Số">
+                        <span id="res-6b"></span>
+                    </div>
+                </td>
             </tr>
         `;
 
-        // Ép các liên kết mở trong tab mới (Sửa lỗi trên điện thoại)
+        /* Hỗ trợ mở link Drive trên thiết bị di động */
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -281,10 +330,10 @@
             });
         });
 
-        // Hàm chính: Gửi đáp án lên Google Sheets để kiểm tra
+        /* Hàm gửi dữ liệu lên Google Sheets để chấm điểm */
         function checkAllAnswers() {
             const tende = document.getElementById('tenDe').value;
-            const scriptUrl = "URL_WEB_APP_APPS_SCRIPT_CỦA_BẠN"; 
+            const scriptUrl = "URL_WEB_APP_APPS_SCRIPT_CỦA_BẠN"; // Thay bằng link Script thực tế của bạn
             if(!tende) return alert("Em chọn đề trước nhé!");
 
             document.querySelectorAll('.user-ans').forEach(input => {
@@ -292,7 +341,7 @@
                 const ans = input.value;
                 if(!ans) return;
                 
-                // Gửi dữ liệu qua máy chủ Google
+                /* Gửi yêu cầu kiểm tra từng ô một cách độc lập */
                 fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${encodeURIComponent(ans)}`)
                 .then(r => r.text())
                 .then(data => {
