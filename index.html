@@ -8,23 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- 1. CẤU HÌNH MÀU SẮC --- */
         :root {
             --primary-yellow: #FFC107;
-            --dark-blue: #2c3e50;
+            --dark-blue-deep: #1a252f; 
             --light-blue-card: #e3f2fd; 
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        /* --- 2. THANH MENU (NAVBAR) --- */
+        /* Navbar */
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 2000; }
-        .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
+        .navbar-brand, .nav-link { color: var(--dark-blue-deep) !important; font-weight: 700; }
 
-        /* --- 3. PHẦN ĐẦU TRANG (HERO SECTION) --- */
+        /* HEADER SECTION */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
-            padding: 100px 0; text-align: center; overflow: hidden; border-bottom: 3px solid var(--primary-yellow);
+            padding: 120px 0; text-align: center; overflow: hidden; border-bottom: 3px solid var(--primary-yellow);
         }
         .math-bg-icon {
             position: absolute; color: var(--primary-yellow); opacity: 0.15; z-index: 1;
@@ -32,47 +31,48 @@
         }
         @keyframes float-and-rotate {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(15deg); }
+            50% { transform: translateY(-25px) rotate(20deg); }
         }
+
         .hero-title {
             font-weight: 900; text-transform: uppercase; position: relative; z-index: 5;
-            display: inline-block; background: linear-gradient(to right, #2c3e50 20%, #FFC107 40%, #ff5722 60%, #2c3e50 80%);
+            display: inline-block; background: linear-gradient(to right, #1a252f 20%, #FFC107 40%, #ff5722 60%, #1a252f 80%);
             background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite; font-size: calc(2rem + 3vw); line-height: 1.1;
+            animation: shine 4s linear infinite; font-size: calc(2.5rem + 3vw); line-height: 1.1;
         }
         @keyframes shine { to { background-position: 200% center; } }
-        .title-break { display: inline; }
-        @media (max-width: 576px) { .title-break { display: block; } .hero-title { font-size: 3rem; } }
 
-        /* --- 4. THIẾT KẾ CARD & MENU TÀI LIỆU --- */
-        .col-md-4 { position: relative; z-index: 10; transition: z-index 0.3s; }
-        .col-md-4:hover, .col-md-4:focus-within { z-index: 100; }
+        .sub-slogan {
+            font-size: 2rem; font-weight: 800; color: #d35400; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15); font-style: italic;
+            position: relative; z-index: 5; margin-top: 25px;
+        }
+
+        /* CARD & NÚT BẤM */
         .card-custom { border: none; border-radius: 20px; background-color: var(--light-blue-card); transition: 0.4s; overflow: visible !important; }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
-        .btn-action { background-color: var(--dark-blue); color: #fff; border-radius: 50px; font-weight: 700; transition: 0.3s; }
-        
-        .dropdown-menu { border-radius: 12px; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000 !important; }
-        .dropdown-item { transition: all 0.3s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
-        .dropdown-item:hover { background-color: #007bff !important; color: white !important; }
-        
-        /* Ngày cập nhật in nghiêng */
-        .update-date { font-style: italic !important; text-align: center; display: block; font-size: 0.85rem; color: #6c757d; padding: 10px 0; }
+        .btn-action { background-color: var(--dark-blue-deep); color: #fff; border-radius: 50px; font-weight: 700; padding: 10px 25px; transition: 0.3s; border: none; }
+        .btn-action:hover { background-color: #000; color: var(--primary-yellow); }
 
-        /* --- 5. FOOTER CHUYÊN NGHIỆP --- */
-        .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 60px 0 20px; border-top: 5px solid var(--primary-yellow); position: relative; z-index: 1; }
-        .contact-info a { transition: 0.3s; color: rgba(255,255,255,0.75) !important; text-decoration: none; }
-        .contact-info a:hover { color: var(--primary-yellow) !important; transform: translateX(5px); }
-        .icon-circle { width: 35px; height: 35px; background: rgba(255, 193, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); font-size: 0.9rem; }
-        .social-links .social-btn { width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
-        .social-btn:hover { background: var(--primary-yellow); color: var(--dark-blue); transform: translateY(-5px); }
-        .footer-marquee { background: rgba(0, 0, 0, 0.2); border-radius: 50px; padding: 5px 20px; border-left: 3px solid var(--primary-yellow); display: inline-block; }
-        .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; font-style: italic; color: #fff; }
+        .update-date { display: block; text-align: center; width: 100%; font-style: italic !important; color: #6c757d; padding: 10px 0; font-size: 0.85rem; }
+
+        /* FOOTER */
+        .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 60px 0 20px; border-top: 5px solid var(--primary-yellow); }
+        .icon-circle { width: 40px; height: 40px; background: rgba(255, 193, 7, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); }
+        .contact-link { color: rgba(255,255,255,0.8) !important; text-decoration: none; transition: 0.3s; }
+        .contact-link:hover { color: var(--primary-yellow) !important; }
+        .social-btn { width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary-yellow); color: var(--dark-blue-deep); transform: translateY(-5px); }
+
+        /* HIỆU ỨNG CHẠY CHỮ */
+        .marquee-container { width: 100%; overflow: hidden; white-space: nowrap; background: rgba(0,0,0,0.2); padding: 10px 0; margin: 20px 0; border-radius: 50px; }
+        .marquee-text { display: inline-block; animation: marquee 15s linear infinite; font-style: italic; font-weight: bold; color: var(--primary-yellow); }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* --- 6. HỆ THỐNG DÒ ĐÁP ÁN --- */
-        .btn-check-float { position: fixed; bottom: 25px; right: 25px; z-index: 4000; background-color: var(--primary-yellow); color: var(--dark-blue); border: 2px solid #fff; border-radius: 50px; padding: 12px 20px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .note-text { font-size: 0.72rem; color: #666; font-style: italic; display: block; margin-top: 2px; }
-        .res-icon { font-size: 1.1rem; font-weight: bold; margin-left: 8px; }
+        /* DÒ ĐÁP ÁN */
+        .btn-check-float { position: fixed; bottom: 25px; right: 25px; z-index: 4000; background-color: var(--primary-yellow); color: var(--dark-blue-deep); border: 2px solid #fff; border-radius: 50px; padding: 12px 22px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .note-text { font-size: 0.75rem; color: #e67e22; font-style: italic; display: block; margin-top: 5px; font-weight: 600; text-align: left; }
+        .res-icon { font-size: 1.2rem; font-weight: bold; margin-left: 10px; }
     </style>
 </head>
 <body>
@@ -80,20 +80,19 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tailieu">Kho Tài Liệu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#video">Bài Giảng</a></li>
-                </ul>
+            <div class="ms-auto">
+                <a class="nav-link d-inline me-4" href="#tailieu">Kho Tài Liệu</a>
+                <a class="nav-link d-inline" href="#video">Bài Giảng</a>
             </div>
         </div>
     </nav>
 
     <header class="hero-section">
-        <i class="fas fa-calculator math-bg-icon" style="top: 10%; left: 5%; font-size: 6rem;"></i>
-        <i class="fas fa-drafting-compass math-bg-icon" style="top: 15%; right: 8%; font-size: 5rem;"></i>
+        <i class="fas fa-calculator math-bg-icon" style="top: 10%; left: 8%; font-size: 6rem;"></i>
+        <i class="fas fa-pencil-ruler math-bg-icon" style="top: 25%; right: 12%; font-size: 5rem; animation-delay: 2s;"></i>
+        <i class="fas fa-circle-notch math-bg-icon" style="bottom: 15%; left: 10%; font-size: 7rem; animation-delay: 1s;"></i>
+        <i class="fas fa-compass math-bg-icon" style="bottom: 25%; right: 5%; font-size: 4.5rem; animation-delay: 3s;"></i>
+        
         <div class="container">
             <h1 class="hero-title"><span class="title-break">KHƠI NGUỒN</span> <span class="title-break">TƯ DUY</span></h1>
             <p class="sub-slogan">"Học toán, đó là một quá trình tích lũy lâu dài!"</p>
@@ -101,7 +100,7 @@
     </header>
 
     <div class="container my-5 py-5" id="tailieu">
-        <div class="row g-4 text-center">
+        <div class="row g-4 text-center justify-content-center">
             <div class="col-md-4">
                 <div class="card card-custom h-100 shadow-sm p-4">
                     <div class="mb-3 text-primary"><i class="fas fa-graduation-cap fa-3x"></i></div>
@@ -109,76 +108,79 @@
                     <div class="dropdown">
                         <button class="btn btn-action w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static">Xem chi tiết</button>
                         <ul class="dropdown-menu w-100 shadow border-0">
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><span class="update-date">Cập nhật: 28/03/2026</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4"><div class="card card-custom h-100 shadow-sm p-4"><div class="mb-3 text-primary"><i class="fas fa-atom fa-3x"></i></div><h5 class="fw-bold">Học sinh giỏi lớp 9</h5><button class="btn btn-action w-100 mt-2">Đang cập nhật...</button></div></div>
-            <div class="col-md-4"><div class="card card-custom h-100 shadow-sm p-4"><div class="mb-3 text-primary"><i class="fas fa-medal fa-3x"></i></div><h5 class="fw-bold">VIOLYMPIC TOÁN</h5><button class="btn btn-action w-100 mt-2">Đang cập nhật...</button></div></div>
+
+            <div class="col-md-4">
+                <div class="card card-custom h-100 shadow-sm p-4">
+                    <div class="mb-3 text-danger"><i class="fas fa-atom fa-3x"></i></div>
+                    <h5 class="fw-bold">Học sinh giỏi lớp 9</h5>
+                    <button class="btn btn-action w-100 mt-2">Đang cập nhật...</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-custom h-100 shadow-sm p-4">
+                    <div class="mb-3 text-warning"><i class="fas fa-medal fa-3x"></i></div>
+                    <h5 class="fw-bold">VIOLYMPIC TOÁN</h5>
+                    <button class="btn btn-action w-100 mt-2">Đang cập nhật...</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer class="footer-section">
         <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-5 text-center text-lg-start">
-                    <h5 class="text-warning fw-bold mb-3"><i class="fas fa-graduation-cap me-2"></i>WEBSITE TOÁN THẦY DUY ANH</h5>
-                    <p class="text-light opacity-75 mb-4 small">Nơi chia sẻ kiến thức, tài liệu ôn thi vào lớp 10 và các chuyên đề bồi dưỡng học sinh giỏi môn Toán dành cho học sinh THCS Nguyễn An Khương.</p>
-                    <div class="footer-marquee shadow-sm overflow-hidden w-100"><p class="marquee-text mb-0">"Học thì không khó - Khó khi không học"</p></div>
+            <div class="row gy-5 text-center justify-content-center">
+                <div class="col-lg-4">
+                    <h5 class="text-warning fw-bold mb-4">WEBSITE TOÁN THẦY DUY ANH</h5>
+                    <p class="text-light opacity-75 small">Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán dành cho các bạn học sinh.</p>
                 </div>
-                <div class="col-lg-4 text-center text-lg-start">
-                    <h5 class="text-white fw-bold mb-3">THÔNG TIN LIÊN HỆ</h5>
-                    <ul class="list-unstyled contact-info">
-                        <li class="mb-3"><a href="tel:0908734026" class="d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-phone-alt"></i></span>0908.734.026</a></li>
-                        <li class="mb-3"><a href="mailto:nguyenphamduyanh@gmail.com" class="d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a></li>
-                        <li class="mb-3"><div class="text-light opacity-75 d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-map-marker-alt"></i></span>Hóc Môn, TP.HCM</div></li>
-                    </ul>
+                <div class="col-lg-4 border-lg-start border-lg-end border-secondary border-opacity-25">
+                    <h5 class="text-white fw-bold mb-4">LIÊN HỆ TRỰC TIẾP</h5>
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <a href="tel:0908734026" class="contact-link d-flex align-items-center"><span class="icon-circle me-3"><i class="fas fa-phone-alt"></i></span>0908.734.026</a>
+                        <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link d-flex align-items-center"><span class="icon-circle me-3"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 text-center text-lg-start">
-                    <h5 class="text-white fw-bold mb-3">MẠNG XÃ HỘI</h5>
-                    <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-4">MẠNG XÃ HỘI</h5>
+                    <div class="social-links d-flex justify-content-center gap-3">
                         <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://zalo.me/0908734026" class="social-btn" style="font-size: 0.7rem;">Zalo</a>
+                        <a href="https://zalo.me/0908734026" class="social-btn">ZALO</a>
                         <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-            <hr class="bg-secondary my-4 opacity-25">
+            <div class="marquee-container text-center">
+                <span class="marquee-text">Học thì không khó - Khó khi không học</span>
+            </div>
             <p class="small text-center text-secondary mb-0">© 2026 - All rights reserved.</p>
         </div>
     </footer>
 
     <button class="btn-check-float" data-bs-toggle="modal" data-bs-target="#checkModal"><i class="fas fa-spell-check me-2"></i>DÒ ĐÁP ÁN</button>
-
     <div class="modal fade" id="checkModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-warning border-3">
-                <div class="modal-header bg-warning"><h5 class="modal-title fw-bold text-dark">DÒ ĐÁP ÁN NHANH</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-                <div class="modal-body text-center">
+                <div class="modal-header bg-warning"><h5 class="modal-title fw-bold">HỆ THỐNG DÒ ĐÁP ÁN</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
                     <select id="tenDe" class="form-select mb-3 border-warning fw-bold"><option value="Đề ôn tập số 7" selected>Đề ôn tập số 7</option></select>
                     <table class="table table-sm table-bordered align-middle">
-                        <thead><tr><th>Câu</th><th colspan="2">Đáp án</th></tr></thead>
-                        <tbody id="answerSheet">
-                            <tr><td class="fw-bold">2</td><td colspan="2"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="2" placeholder="Nhập chữ"><span id="res-2" class="res-icon"></span><small class="note-text">Nhập kết quả dạng phân số</small></td></tr>
-                            <tr>
-                                <td class="fw-bold">3</td>
-                                <td><small>An</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3An" placeholder="Chữ"><span id="res-3An" class="res-icon"></span></td>
-                                <td><small>Bình</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3Binh" placeholder="Chữ"><span id="res-3Binh" class="res-icon"></span></td>
-                            </tr>
-                            <tr><td colspan="3"><small class="note-text">Nhập kết quả có dấu % (VD: 23.35%)</small></td></tr>
-                            <tr><td class="fw-bold">4</td><td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="4" placeholder="Số"><span id="res-4" class="res-icon"></span><small class="note-text">Đơn vị: m^{2}</small></td></tr>
-                            <tr><td class="fw-bold">5</td><td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="5" placeholder="Số"><span id="res-5" class="res-icon"></span><small class="note-text">Đơn vị: m^{2}</small></td></tr>
-                            <tr>
-                                <td class="fw-bold">6</td>
-                                <td><small>6a</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a"><span id="res-6a" class="res-icon"></span></td>
-                                <td><small>6b</small><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b"><span id="res-6b" class="res-icon"></span></td>
-                            </tr>
-                            <tr><td colspan="3"><small class="note-text">6a nhập viết liền không dấu, 6 nhập kết quả dạng phân số.</small></td></tr>
+                        <tbody>
+                            <tr><td class="fw-bold text-center bg-light" style="width: 50px;">1</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="1"><span id="res-1" class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light">2</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="2"><span id="res-2" class="res-icon"></span></div><small class="note-text">Câu 2. Nhập dạng phân số (VD: 5/6)</small></td></tr>
+                            <tr><td class="fw-bold text-center bg-light">3</td><td><div class="d-flex gap-2 align-items-center"><small>An:</small><input type="text" class="form-control user-ans" data-cau="3An"><span id="res-3An" class="res-icon"></span><small>Bình:</small><input type="text" class="form-control user-ans" data-cau="3Binh"><span id="res-3Binh" class="res-icon"></span></div><small class="note-text">Câu 3. Nhập kết quả có dấu % (VD: 23.45%)</small></td></tr>
+                            <tr><td class="fw-bold text-center bg-light">4</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="4"><span id="res-4" class="res-icon"></span><span class="ms-2">m<sup>2</sup></span></div><small class="note-text">Câu 4. Đơn vị: m<sup>2</sup></small></td></tr>
+                            <tr><td class="fw-bold text-center bg-light">5</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="5"><span id="res-5" class="res-icon"></span><span class="ms-2">m<sup>2</sup></span></div><small class="note-text">Câu 5. Đơn vị: m<sup>2</sup></small></td></tr>
+                            <tr><td class="fw-bold text-center bg-light">6</td><td><div class="d-flex gap-2 align-items-center"><small>6a:</small><input type="text" class="form-control user-ans" data-cau="6a"><span id="res-6a" class="res-icon"></span><small>6b:</small><input type="text" class="form-control user-ans" data-cau="6b"><span id="res-6b" class="res-icon"></span></div><small class="note-text">Câu 6. 6a không khoảng trắng, 6b nhập số.</small></td></tr>
                         </tbody>
                     </table>
                     <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">CHẤM ĐIỂM</button>
@@ -189,16 +191,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // QUAN TRỌNG: Link Apps Script
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
         function checkAllAnswers() {
             const tende = document.getElementById('tenDe').value;
-            if(!tende) return alert("Em chọn đề trước nhé!");
-
             document.querySelectorAll('.user-ans').forEach(input => {
                 const maCau = input.dataset.cau;
-                const ans = input.value.trim(); // Xóa khoảng trắng thừa để tránh báo sai
+                const ans = input.value.trim();
                 if(!ans) return;
 
                 const resSpan = document.getElementById(`res-${maCau}`);
@@ -207,21 +206,17 @@
                 fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${encodeURIComponent(ans)}`)
                 .then(r => r.text())
                 .then(data => {
-                    if(data.trim() === "TRUE") {
-                        resSpan.innerHTML = '<i class="fas fa-check text-success"></i>'; // Tick xanh
+                    if(data.trim().toUpperCase() === "TRUE") {
+                        resSpan.innerHTML = '<i class="fas fa-check-circle text-success"></i>';
                         input.style.borderColor = "green";
                     } else {
-                        resSpan.innerHTML = '<i class="fas fa-times text-danger"></i>'; // X đỏ
+                        resSpan.innerHTML = '<i class="fas fa-times-circle text-danger"></i>';
                         input.style.borderColor = "red";
                     }
-                })
-                .catch(() => { resSpan.innerHTML = '<i class="fas fa-exclamation text-warning"></i>'; });
+                });
             });
         }
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', function(e) { e.preventDefault(); window.open(this.getAttribute('href'), '_blank'); });
-        });
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', function(e) { e.preventDefault(); window.open(this.href, '_blank'); }));
     </script>
 </body>
 </html>
