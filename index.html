@@ -51,12 +51,11 @@
 
         /* CARD & MENU TÀI LIỆU */
         .col-md-4 { position: relative; z-index: 10; transition: z-index 0.3s; }
-        .col-md-4:hover, .col-md-4:focus-within { z-index: 100; } /* Đảm bảo menu hiện trên card khác */
+        .col-md-4:hover, .col-md-4:focus-within { z-index: 1000; }
 
         .card-custom { border: none; border-radius: 20px; background-color: var(--light-blue-card); transition: 0.4s; overflow: visible !important; }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
         .btn-action { background-color: var(--dark-blue-deep); color: #fff; border-radius: 50px; font-weight: 700; padding: 10px 25px; transition: 0.3s; border: none; }
-        .btn-action:hover { background-color: #000; color: var(--primary-yellow); }
 
         .dropdown-menu { border-radius: 12px; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000 !important; }
         .dropdown-item { transition: all 0.2s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
@@ -64,19 +63,68 @@
 
         .update-date { display: block; text-align: center; width: 100%; font-style: italic !important; color: #6c757d; padding: 10px 0; font-size: 0.85rem; }
 
-        /* FOOTER */
-        .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 60px 0 20px; border-top: 5px solid var(--primary-yellow); }
-        .footer-desc { max-width: 600px; margin: 0 auto; line-height: 1.6; }
-        .contact-link { color: rgba(255,255,255,0.8) !important; text-decoration: none; transition: 0.3s; }
-        .icon-circle { width: 40px; height: 40px; background: rgba(255, 193, 7, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); }
-        .social-btn { width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
-        .social-btn:hover { background: var(--primary-yellow); color: var(--dark-blue-deep); transform: translateY(-5px); }
+        /* FOOTER 3 PHẦN */
+        .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 70px 0 25px; border-top: 5px solid var(--primary-yellow); position: relative; z-index: 1; }
+        
+        .footer-desc {
+            max-width: 400px;
+            line-height: 1.6;
+            text-wrap: balance; 
+            word-break: keep-all; 
+        }
+
+        /* --- CSS MỚI CHO CHÂM NGÔN CHẠY NGANG (PHẦN 1) --- */
+        .footer-marquee-box {
+            width: 100%;
+            max-width: 380px;
+            background: rgba(255, 193, 7, 0.08); /* Nền vàng cực nhẹ */
+            border: 1px solid rgba(255, 193, 7, 0.2); /* Viền vàng tinh tế */
+            border-radius: 50px;
+            padding: 8px 0;
+            margin-top: 25px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        .footer-marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%; /* Đẩy chữ ra mép phải trước khi chạy */
+            color: var(--primary-yellow);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 0.95rem;
+            animation: marquee-smooth 15s linear infinite; /* Chạy đều 15s */
+        }
+        @keyframes marquee-smooth {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); } /* Chạy từ phải qua trái hoàn toàn */
+        }
+        /* ------------------------------------------------ */
+        
+        .contact-link { color: rgba(255,255,255,0.8) !important; text-decoration: none; transition: 0.3s ease; display: flex; align-items: center; }
+        .contact-link:hover { color: var(--primary-yellow) !important; transform: translateX(5px); }
+        .icon-circle { width: 40px; height: 40px; background: rgba(255, 193, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); margin-right: 15px; }
+        
+        .social-btn { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.05); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; font-weight: bold; }
+        .social-btn:hover { transform: translateY(-5px); color: white; }
+        .sb-facebook:hover { background-color: #3b5998; }
+        .sb-zalo:hover { background-color: #0068ff; font-size: 0.8rem; }
+        .sb-youtube:hover { background-color: #ff0000; }
 
         /* DÒ ĐÁP ÁN */
         .btn-check-float { position: fixed; bottom: 25px; right: 25px; z-index: 4000; background-color: var(--primary-yellow); color: var(--dark-blue-deep); border: 2px solid #fff; border-radius: 50px; padding: 12px 22px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .note-text { font-size: 0.75rem; color: #e67e22; font-style: italic; display: block; margin-top: 5px; font-weight: 600; text-align: left; }
         .res-icon { font-size: 1.1rem; margin-left: 5px; }
         .btn-mini-check { padding: 2px 8px; font-size: 0.7rem; border-radius: 5px; background: #6c757d; color: white; border: none; margin-left: 5px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 991.98px) {
+            .footer-desc {
+                max-width: 90%;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -95,7 +143,6 @@
         <i class="fas fa-calculator math-bg-icon" style="top: 10%; left: 8%; font-size: 6rem;"></i>
         <i class="fas fa-pencil-ruler math-bg-icon" style="top: 25%; right: 12%; font-size: 5rem; animation-delay: 2s;"></i>
         <i class="fas fa-circle-notch math-bg-icon" style="bottom: 15%; left: 10%; font-size: 7rem; animation-delay: 1s;"></i>
-        <i class="fas fa-compass math-bg-icon" style="bottom: 25%; right: 5%; font-size: 4.5rem; animation-delay: 3s;"></i>
         <div class="container">
             <h1 class="hero-title"><span class="title-break">KHƠI NGUỒN</span> <span class="title-break">TƯ DUY</span></h1>
             <p class="sub-slogan">"Học toán, đó là một quá trình tích lũy lâu dài!"</p>
@@ -139,77 +186,46 @@
 
     <footer class="footer-section">
         <div class="container">
-            <div class="row gy-5 justify-content-center"> <div class="col-lg-8 text-center"> 
-                    <h5 class="text-warning fw-bold mb-3">
-                        <i class="fas fa-graduation-cap me-2"></i>WEBSITE TOÁN THẦY DUY ANH
-                    </h5>
-                    
-                    <p class="text-light opacity-75 mb-4 small mx-auto" style="max-width: 550px; line-height: 1.6;">
+            <div class="row gy-5">
+                
+                <div class="col-lg-5 d-flex flex-column align-items-center text-center">
+                    <h5 class="text-warning fw-bold mb-3">WEBSITE TOÁN THẦY DUY ANH</h5>
+                    <p class="text-light opacity-75 small footer-desc mb-0">
                         Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán dành cho các bạn học sinh.
                     </p>
                     
-                    <div class="marquee-container text-center mx-auto" style="max-width: fit-content;">
-                        <span class="marquee-text">Học thì không khó - Khó khi không học</span>
+                    <div class="footer-marquee-box">
+                        <span class="footer-marquee-text">
+                            <i class="fas fa-quote-left me-2 opacity-50"></i>
+                            Học thì không khó - Khó khi không học
+                            <i class="fas fa-quote-right ms-2 opacity-50"></i>
+                        </span>
                     </div>
                 </div>
 
-                <div class="col-lg-4 text-center border-lg-start border-secondary border-opacity-25">
-                    <h5 class="text-white fw-bold mb-4">THÔNG TIN LIÊN HỆ</h5>
-                    <div class="d-flex flex-column align-items-center gap-3">
-                        <a href="tel:0908734026" class="contact-link d-flex align-items-center">
-                            <span class="icon-circle me-3"><i class="fas fa-phone-alt"></i></span>
-                            0908.734.026
-                        </a>
-                        <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link d-flex align-items-center">
-                            <span class="icon-circle me-3"><i class="fas fa-envelope"></i></span>
-                            nguyenphamduyanh@gmail.com
-                        </a>
+                <div class="col-lg-4 text-center text-lg-start px-lg-4 border-lg-start border-lg-end border-secondary border-opacity-25">
+                    <h5 class="text-white fw-bold mb-4">LIÊN HỆ</h5>
+                    <div class="d-flex flex-column align-items-center align-items-lg-start gap-3">
+                        <a href="tel:0908734026" class="contact-link"><span class="icon-circle"><i class="fas fa-phone-alt"></i></span>0908.734.026</a>
+                        <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link"><span class="icon-circle"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a>
                     </div>
                 </div>
 
-                <div class="col-lg-12 text-center mt-4">
-                    <h5 class="text-white fw-bold mb-3">KẾT NỐI VỚI THẦY</h5>
-                    <div class="social-links d-flex justify-content-center gap-3">
-                        <a href="https://www.facebook.com/DuyAnhMath" target="_blank" class="social-btn sb-facebook"><i class="fab fa-facebook-f"></i></a>
+                <div class="col-lg-3 text-center text-lg-start">
+                    <h5 class="text-white fw-bold mb-4">KẾT NỐI</h5>
+                    <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="https://www.facebook.com/duyanhnp.0910" target="_blank" class="social-btn sb-facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://zalo.me/0908734026" target="_blank" class="social-btn sb-zalo">ZALO</a>
-                        <a href="#" target="_blank" class="social-btn sb-youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.youtube.com/@nguyenphamduyanh9157" target="_blank" class="social-btn sb-youtube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-            </div>
 
+            </div>
             <hr class="bg-secondary my-5 opacity-25">
             <p class="small text-center text-secondary mb-0">© 2026 - All rights reserved.</p>
         </div>
     </footer>
 
-    <style>
-        /* Đảm bảo phần giới thiệu không bị dính sát mép trên điện thoại */
-        @media (max-width: 576px) {
-            .footer-section p {
-                padding: 0 15px;
-                font-size: 0.85rem;
-            }
-            .footer-section h5 {
-                font-size: 1.1rem;
-            }
-        }
-        
-        /* Hiệu ứng Hover màu xanh lợt cho các lựa chọn xem chi tiết */
-        .dropdown-item:hover {
-            background-color: var(--hover-blue-light) !important;
-            color: var(--dark-blue-deep) !important;
-            font-weight: 600;
-        }
-
-        /* Z-index cho dropdown hiện lên trên các card trên mobile */
-        .card-custom {
-            position: relative;
-            z-index: 1;
-        }
-        .col-md-4:hover {
-            z-index: 1000;
-        }
-    </style>
     <button class="btn-check-float" data-bs-toggle="modal" data-bs-target="#checkModal"><i class="fas fa-spell-check me-2"></i>DÒ ĐÁP ÁN</button>
     <div class="modal fade" id="checkModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -236,7 +252,6 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
-        // Check từng câu
         function checkSingle(maCau) {
             const tende = document.getElementById('tenDe').value;
             const input = document.querySelector(`.user-ans[data-cau="${maCau}"]`);
@@ -258,7 +273,6 @@
                 });
         }
 
-        // Check cả đề
         function checkAllAnswers() {
             document.querySelectorAll('.user-ans').forEach(input => {
                 if(input.value.trim()) checkSingle(input.dataset.cau);
