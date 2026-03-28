@@ -139,23 +139,151 @@
 
     <footer class="footer-section">
         <div class="container">
-            <div class="row gy-5 text-center justify-content-center">
-                <div class="col-lg-8">
-                    <h5 class="text-warning fw-bold mb-4">WEBSITE TOÁN THẦY DUY ANH</h5>
-                    <p class="text-light opacity-75 footer-desc small px-2">
-                        Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán<br class="d-none d-sm-block"> dành cho các bạn học sinh.
+            <div class="row gy-5">
+                <div class="col-lg-5 text-center text-lg-start">
+                    <h5 class="text-warning fw-bold mb-3">
+                        <i class="fas fa-graduation-cap me-2"></i>WEBSITE TOÁN THẦY DUY ANH
+                    </h5>
+                    <p class="text-light opacity-75 mb-4 small px-lg-0 px-3">
+                        Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán dành cho học sinh THCS Nguyễn An Khương.
                     </p>
-                    <div class="d-flex flex-column align-items-center gap-3 mt-4">
-                        <a href="tel:0908734026" class="contact-link d-flex align-items-center"><span class="icon-circle me-3"><i class="fas fa-phone-alt"></i></span>0908.734.026</a>
-                        <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link d-flex align-items-center"><span class="icon-circle me-3"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a>
+                    <div class="footer-marquee-box">
+                        <p class="marquee-text mb-0">"Học thì không khó - Khó khi không học"</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-center text-lg-start border-lg-start border-lg-end border-secondary border-opacity-25 px-lg-4">
+                    <h5 class="text-white fw-bold mb-4">LIÊN HỆ</h5>
+                    <div class="d-flex flex-column align-items-center align-items-lg-start gap-3">
+                        <a href="tel:0908734026" class="contact-link">
+                            <span class="icon-circle"><i class="fas fa-phone-alt"></i></span>
+                            0908.734.026
+                        </a>
+                        <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link">
+                            <span class="icon-circle"><i class="fas fa-envelope"></i></span>
+                            nguyenphamduyanh@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 text-center text-lg-start">
+                    <h5 class="text-white fw-bold mb-4">KẾT NỐI</h5>
+                    <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="https://www.facebook.com/duyanhnp.0910" class="social-btn sb-facebook" title="Facebook Thầy Duy Anh">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://zalo.me/0908734026" class="social-btn sb-zalo" title="Chat Zalo với Thầy">
+                            ZALO
+                        </a>
+                        <a href="https://www.youtube.com/@nguyenphamduyanh9157" class="social-btn sb-youtube" title="Kênh Youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
             <hr class="bg-secondary my-5 opacity-25">
-            <p class="small text-center text-secondary mb-0">© 2026 - All rights reserved.</p>
+            <p class="small text-center text-secondary mb-0">© 2026 - All rights reserved.</b>.</p>
         </div>
     </footer>
 
+    <style>
+        /* Container chính Footer */
+        .footer-section {
+            background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+            color: white;
+            padding: 70px 0 25px;
+            border-top: 5px solid var(--primary-yellow);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Phần 2: Contact Link & Icon Vòng tròn */
+        .contact-link {
+            color: rgba(255,255,255,0.8) !important;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        .contact-link:hover {
+            color: var(--primary-yellow) !important;
+            transform: translateX(5px);
+        }
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-yellow);
+            font-size: 1rem;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+        .contact-link:hover .icon-circle {
+            background: var(--primary-yellow);
+            color: var(--dark-blue-deep);
+        }
+
+        /* Phần 3: Nút mạng xã hội */
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        /* Hiệu ứng màu khi hover riêng từng nút */
+        .sb-facebook:hover { background-color: #3b5998; color: white; transform: translateY(-5px); }
+        .sb-zalo:hover { background-color: #0068ff; color: white; transform: translateY(-5px); font-size: 0.8rem; }
+        .sb-youtube:hover { background-color: #ff0000; color: white; transform: translateY(-5px); }
+
+        /* Khung chạy chữ Slogan */
+        .footer-marquee-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50px;
+            padding: 8px 20px;
+            border-left: 3px solid var(--primary-yellow);
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            max-width: fit-content;
+        }
+        @media (max-width: 991.98px) {
+            .footer-marquee-box { max-width: 100%; }
+        }
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 18s linear infinite;
+            font-style: italic;
+            font-weight: 600;
+            color: #fff;
+        }
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Xử lý vạch ngăn cách trên thiết bị di động */
+        @media (max-width: 991.98px) {
+            .border-lg-start, .border-lg-end {
+                border: none !important;
+            }
+        }
+    </style>
     <button class="btn-check-float" data-bs-toggle="modal" data-bs-target="#checkModal"><i class="fas fa-spell-check me-2"></i>DÒ ĐÁP ÁN</button>
     <div class="modal fade" id="checkModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
