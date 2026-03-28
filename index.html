@@ -6,19 +6,21 @@
     <title>Toán thầy Duy Anh - THCS NAK</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* --- CẤU HÌNH MÀU SẮC CHỦ ĐẠO --- */
         :root {
-            --primary-yellow: #FFC107;
-            --dark-blue: #2c3e50;
-            --light-blue-card: #e3f2fd; 
+            --primary-yellow: #FFC107; /* Màu vàng thương hiệu */
+            --dark-blue: #2c3e50;      /* Màu xanh đen đậm */
+            --light-blue-card: #e3f2fd; /* Màu xanh lợt cho các thẻ bài tập */
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        /* Navbar */
+        /* --- THANH MENU (NAVBAR) --- */
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
 
-        /* HEADER SECTION */
+        /* --- PHẦN ĐẦU TRANG (HERO SECTION) --- */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
@@ -28,7 +30,7 @@
             border-bottom: 3px solid var(--primary-yellow);
         }
 
-        /* HIỆU ỨNG ICON TOÁN HỌC CHÌM ĐỘNG */
+        /* Các biểu tượng toán học chạy chìm phía sau tiêu đề */
         .math-bg-icon {
             position: absolute;
             color: var(--primary-yellow);
@@ -37,12 +39,13 @@
             animation: float-and-rotate 8s infinite ease-in-out;
         }
 
+        /* Hiệu ứng bay lơ lửng và xoay nhẹ cho icon */
         @keyframes float-and-rotate {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(15deg); }
         }
 
-        /* TIÊU ĐỀ KHƠI NGUỒN TƯ DUY */
+        /* Kiểu chữ lấp lánh KHƠI NGUỒN TƯ DUY */
         .hero-title {
             font-weight: 900;
             text-transform: uppercase;
@@ -60,14 +63,15 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* Xử lý xuống dòng trên điện thoại */
+        /* Thiết lập xuống dòng cho chữ tiêu đề trên điện thoại */
         .title-break { display: inline; }
         @media (max-width: 576px) {
-            .title-break { display: block; } 
+            .title-break { display: block; } /* Điện thoại sẽ ngắt dòng */
             .hero-title { font-size: 3rem; }
             .hero-section { padding: 60px 0; }
         }
 
+        /* Dòng slogan dưới tiêu đề */
         .sub-slogan {
             font-style: italic;
             color: var(--dark-blue);
@@ -78,7 +82,7 @@
             font-size: 1.2rem;
         }
 
-        /* THIẾT KẾ CARD XANH LỢT */
+        /* --- CÁC THẺ BÀI TẬP (CARDS) --- */
         .card-custom {
             border: none;
             border-radius: 20px;
@@ -89,6 +93,7 @@
         }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
 
+        /* Nút bấm trong Card */
         .btn-action {
             background-color: var(--dark-blue);
             color: #fff;
@@ -98,52 +103,24 @@
         }
         .btn-action:hover { background-color: #000; color: var(--primary-yellow); }
         
-        /* HIỆU ỨNG HOVER CHO CÁC MỤC TÀI LIỆU */
-        .dropdown-menu {
-            border-radius: 12px;
-            overflow: hidden;
-            border: none;
-            padding: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .dropdown-item {
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            margin-bottom: 2px;
-            padding: 10px 15px;
-        }
-        .dropdown-item:hover {
-            background-color: #007bff !important; /* Nền xanh dương khi rê chuột */
-            color: white !important;
-            padding-left: 1.5rem;
-        }
+        /* Hiệu ứng nền xanh dương khi rê chuột vào mục tài liệu */
+        .dropdown-menu { border-radius: 12px; overflow: hidden; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .dropdown-item { transition: all 0.3s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
+        .dropdown-item:hover { background-color: #007bff !important; color: white !important; padding-left: 1.5rem; }
         .dropdown-item:hover i { color: white !important; }
 
-        /* Cập nhật ngày in nghiêng */
-        .update-date {
-            font-style: italic !important;
-            text-align: center;
-            display: block;
-            font-size: 0.85rem;
-            color: #6c757d;
-            padding: 10px 0;
-        }
+        /* Kiểu chữ ngày cập nhật */
+        .update-date { font-style: italic !important; text-align: center; display: block; font-size: 0.85rem; color: #6c757d; padding: 10px 0; }
 
-        /* Video & Footer */
+        /* --- VIDEO & FOOTER --- */
         .video-box { background-color: var(--dark-blue); padding: 50px 0; }
         footer { background: var(--dark-blue); color: white; padding: 40px 0; }
 
-        .marquee-text {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-            font-style: italic;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        /* Hiệu ứng chữ chạy ở cuối trang */
+        .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; font-style: italic; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
+        /* Nút tròn Dò đáp án nổi trên màn hình */
         .btn-check-float {
             position: fixed; bottom: 25px; right: 25px; z-index: 1000;
             background-color: var(--primary-yellow); color: var(--dark-blue);
@@ -175,9 +152,8 @@
         <i class="fas fa-drafting-compass math-bg-icon" style="top: 15%; right: 8%; font-size: 5rem; animation-delay: 1s;"></i>
         <i class="fas fa-circle-notch math-bg-icon" style="bottom: 10%; left: 12%; font-size: 7rem; animation-delay: 2s;"></i>
         <i class="fas fa-square-root-alt math-bg-icon" style="bottom: 15%; right: 10%; font-size: 5.5rem; animation-delay: 3s;"></i>
-        <i class="fas fa-infinity math-bg-icon" style="top: 50%; left: 50%; font-size: 4rem; opacity: 0.05;"></i>
-
-        <div class="container">
+        
+        <div class="container text-center">
             <h1 class="hero-title">
                 <span class="title-break">KHƠI NGUỒN</span> 
                 <span class="title-break">TƯ DUY</span>
@@ -259,12 +235,17 @@
                 <div class="modal-body text-center">
                     <select id="tenDe" class="form-select mb-3 border-warning fw-bold">
                         <option value="" disabled selected>-- Chọn đề thi --</option>
-                        <option value="Đề 1">Đề ôn tập số 1</option>
-                        <option value="Đề 2">Đề tăng cường số 1</option>
+                        <option value="Đề ôn tập số 7">Đề ôn tập số 7</option>
                     </select>
                     <table class="table table-sm table-bordered">
-                        <thead><tr><th>Câu</th><th>Ý a</th><th>Ý b</th></tr></thead>
-                        <tbody id="answerSheet"></tbody>
+                        <thead>
+                            <tr>
+                                <th>Câu</th>
+                                <th colspan="2">Đáp án</th>
+                            </tr>
+                        </thead>
+                        <tbody id="answerSheet">
+                            </tbody>
                     </table>
                     <div id="summaryResult" class="alert d-none fw-bold mt-2"></div>
                     <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">CHẤM ĐIỂM</button>
@@ -273,19 +254,26 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Tạo bảng nhập liệu tự động (Câu 2-5 nhập số, Câu 6 có 2 ý)
         const tbody = document.getElementById('answerSheet');
-        for (let i = 1; i <= 6; i++) {
+        for (let i = 2; i <= 5; i++) {
             tbody.innerHTML += `
                 <tr>
                     <td class="fw-bold">${i}</td>
-                    <td><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}a"><span id="res-${i}a"></span></td>
-                    <td><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}b"><span id="res-${i}b"></span></td>
+                    <td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="${i}" placeholder="Nhập số"><span id="res-${i}"></span></td>
                 </tr>
             `;
         }
+        tbody.innerHTML += `
+            <tr>
+                <td class="fw-bold">6</td>
+                <td><small>Ý a (Chữ)</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a"><span id="res-6a"></span></td>
+                <td><small>Ý b (Số)</small><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b"><span id="res-6b"></span></td>
+            </tr>
+        `;
 
+        // Ép các liên kết mở trong tab mới (Sửa lỗi trên điện thoại)
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -293,6 +281,7 @@
             });
         });
 
+        // Hàm chính: Gửi đáp án lên Google Sheets để kiểm tra
         function checkAllAnswers() {
             const tende = document.getElementById('tenDe').value;
             const scriptUrl = "URL_WEB_APP_APPS_SCRIPT_CỦA_BẠN"; 
@@ -302,7 +291,9 @@
                 const maCau = input.dataset.cau;
                 const ans = input.value;
                 if(!ans) return;
-                fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${ans}`)
+                
+                // Gửi dữ liệu qua máy chủ Google
+                fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${encodeURIComponent(ans)}`)
                 .then(r => r.text())
                 .then(data => {
                     const resSpan = document.getElementById(`res-${maCau}`);
