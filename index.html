@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* --- 1. CẤU HÌNH MÀU SẮC & GIAO DIỆN CHUNG --- */
+        /* --- 1. CẤU HÌNH MÀU SẮC --- */
         :root {
             --primary-yellow: #FFC107;
             --dark-blue: #2c3e50;
@@ -16,11 +16,11 @@
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        /* Navbar */
+        /* --- 2. THANH MENU (NAVBAR) --- */
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 2000; }
         .navbar-brand, .nav-link { color: var(--dark-blue) !important; font-weight: 700; }
 
-        /* --- 2. HEADER TIÊU ĐỀ --- */
+        /* --- 3. PHẦN ĐẦU TRANG (HERO SECTION) --- */
         .hero-section {
             position: relative;
             background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
@@ -44,45 +44,35 @@
         .title-break { display: inline; }
         @media (max-width: 576px) { .title-break { display: block; } .hero-title { font-size: 3rem; } }
 
-        /* --- 3. XỬ LÝ LỖI MENU TÀI LIỆU BỊ CHE --- */
+        /* --- 4. THIẾT KẾ CARD & MENU TÀI LIỆU --- */
         .col-md-4 { position: relative; z-index: 10; transition: z-index 0.3s; }
         .col-md-4:hover, .col-md-4:focus-within { z-index: 100; }
-
-        .card-custom {
-            border: none; border-radius: 20px; background-color: var(--light-blue-card);
-            transition: 0.4s; overflow: visible !important;
-        }
+        .card-custom { border: none; border-radius: 20px; background-color: var(--light-blue-card); transition: 0.4s; overflow: visible !important; }
         .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
-
         .btn-action { background-color: var(--dark-blue); color: #fff; border-radius: 50px; font-weight: 700; transition: 0.3s; }
-        .btn-action:hover { background-color: #000; color: var(--primary-yellow); }
         
-        .dropdown-menu {
-            border-radius: 12px; border: none; padding: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000 !important;
-        }
+        .dropdown-menu { border-radius: 12px; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000 !important; }
         .dropdown-item { transition: all 0.3s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
         .dropdown-item:hover { background-color: #007bff !important; color: white !important; }
-
-        /* --- 4. BẢNG DÒ ĐÁP ÁN --- */
-        .btn-check-float {
-            position: fixed; bottom: 25px; right: 25px; z-index: 4000;
-            background-color: var(--primary-yellow); color: var(--dark-blue);
-            border: 2px solid #fff; border-radius: 50px; padding: 12px 20px; font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .note-text { font-size: 0.72rem; color: #666; font-style: italic; display: block; margin-top: 2px; }
-        .res-icon { font-size: 1.1rem; font-weight: bold; min-width: 20px; display: inline-block; }
         
-        .btn-check-single {
-            padding: 2px 8px; font-size: 0.7rem; border-radius: 5px;
-            background-color: #6c757d; color: white; border: none; margin-left: 5px;
-        }
-        .btn-check-single:hover { background-color: var(--dark-blue); }
+        /* Ngày cập nhật in nghiêng */
+        .update-date { font-style: italic !important; text-align: center; display: block; font-size: 0.85rem; color: #6c757d; padding: 10px 0; }
 
-        footer { background: var(--dark-blue); color: white; padding: 40px 0; position: relative; z-index: 1; }
-        .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; font-style: italic; }
+        /* --- 5. FOOTER CHUYÊN NGHIỆP --- */
+        .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 60px 0 20px; border-top: 5px solid var(--primary-yellow); position: relative; z-index: 1; }
+        .contact-info a { transition: 0.3s; color: rgba(255,255,255,0.75) !important; text-decoration: none; }
+        .contact-info a:hover { color: var(--primary-yellow) !important; transform: translateX(5px); }
+        .icon-circle { width: 35px; height: 35px; background: rgba(255, 193, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); font-size: 0.9rem; }
+        .social-links .social-btn { width: 40px; height: 40px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .social-btn:hover { background: var(--primary-yellow); color: var(--dark-blue); transform: translateY(-5px); }
+        .footer-marquee { background: rgba(0, 0, 0, 0.2); border-radius: 50px; padding: 5px 20px; border-left: 3px solid var(--primary-yellow); display: inline-block; }
+        .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 20s linear infinite; font-style: italic; color: #fff; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* --- 6. HỆ THỐNG DÒ ĐÁP ÁN --- */
+        .btn-check-float { position: fixed; bottom: 25px; right: 25px; z-index: 4000; background-color: var(--primary-yellow); color: var(--dark-blue); border: 2px solid #fff; border-radius: 50px; padding: 12px 20px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .note-text { font-size: 0.72rem; color: #666; font-style: italic; display: block; margin-top: 2px; }
+        .res-icon { font-size: 1.1rem; font-weight: bold; margin-left: 8px; }
     </style>
 </head>
 <body>
@@ -90,9 +80,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
@@ -106,7 +94,7 @@
     <header class="hero-section">
         <i class="fas fa-calculator math-bg-icon" style="top: 10%; left: 5%; font-size: 6rem;"></i>
         <i class="fas fa-drafting-compass math-bg-icon" style="top: 15%; right: 8%; font-size: 5rem;"></i>
-        <div class="container text-center">
+        <div class="container">
             <h1 class="hero-title"><span class="title-break">KHƠI NGUỒN</span> <span class="title-break">TƯ DUY</span></h1>
             <p class="sub-slogan">"Học toán, đó là một quá trình tích lũy lâu dài!"</p>
         </div>
@@ -121,11 +109,11 @@
                     <div class="dropdown">
                         <button class="btn btn-action w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static">Xem chi tiết</button>
                         <ul class="dropdown-menu w-100 shadow border-0">
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
+                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><span class="update-date italic text-muted text-center d-block">Cập nhật: 28/03/2026</span></li>
+                            <li><span class="update-date">Cập nhật: 28/03/2026</span></li>
                         </ul>
                     </div>
                 </div>
@@ -135,10 +123,33 @@
         </div>
     </div>
 
-    <footer class="text-center">
+    <footer class="footer-section">
         <div class="container">
-            <h5 class="text-warning fw-bold mb-4">WEBSITE CHIA SẺ VỀ TOÁN - THẦY DUY ANH</h5>
-            <div class="marquee-container overflow-hidden my-4"><p class="marquee-text mb-0 text-light">"Học thì không khó - Khó khi không học"</p></div>
+            <div class="row gy-4">
+                <div class="col-lg-5 text-center text-lg-start">
+                    <h5 class="text-warning fw-bold mb-3"><i class="fas fa-graduation-cap me-2"></i>WEBSITE TOÁN THẦY DUY ANH</h5>
+                    <p class="text-light opacity-75 mb-4 small">Nơi chia sẻ kiến thức, tài liệu ôn thi vào lớp 10 và các chuyên đề bồi dưỡng học sinh giỏi môn Toán dành cho học sinh THCS Nguyễn An Khương.</p>
+                    <div class="footer-marquee shadow-sm overflow-hidden w-100"><p class="marquee-text mb-0">"Học thì không khó - Khó khi không học"</p></div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h5 class="text-white fw-bold mb-3">THÔNG TIN LIÊN HỆ</h5>
+                    <ul class="list-unstyled contact-info">
+                        <li class="mb-3"><a href="tel:0908734026" class="d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-phone-alt"></i></span>0908.734.026</a></li>
+                        <li class="mb-3"><a href="mailto:nguyenphamduyanh@gmail.com" class="d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a></li>
+                        <li class="mb-3"><div class="text-light opacity-75 d-flex align-items-center justify-content-center justify-content-lg-start"><span class="icon-circle me-3"><i class="fas fa-map-marker-alt"></i></span>Hóc Môn, TP.HCM</div></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 text-center text-lg-start">
+                    <h5 class="text-white fw-bold mb-3">MẠNG XÃ HỘI</h5>
+                    <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://zalo.me/0908734026" class="social-btn" style="font-size: 0.7rem;">Zalo</a>
+                        <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-secondary my-4 opacity-25">
+            <p class="small text-center text-secondary mb-0">© 2026 - All rights reserved.</p>
         </div>
     </footer>
 
@@ -147,30 +158,30 @@
     <div class="modal fade" id="checkModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-warning border-3">
-                <div class="modal-header bg-warning"><h5 class="modal-title fw-bold">HỆ THỐNG DÒ ĐÁP ÁN</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-header bg-warning"><h5 class="modal-title fw-bold text-dark">DÒ ĐÁP ÁN NHANH</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
                 <div class="modal-body text-center">
                     <select id="tenDe" class="form-select mb-3 border-warning fw-bold"><option value="Đề ôn tập số 7" selected>Đề ôn tập số 7</option></select>
                     <table class="table table-sm table-bordered align-middle">
-                        <thead><tr><th>Câu</th><th colspan="2">Bài làm</th></tr></thead>
+                        <thead><tr><th>Câu</th><th colspan="2">Đáp án</th></tr></thead>
                         <tbody id="answerSheet">
-                            <tr><td class="fw-bold">2</td><td colspan="2"><div class="d-flex align-items-center"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="2"><button class="btn-check-single" onclick="checkSingle('2')">Check</button><span id="res-2" class="ms-2 res-icon"></span></div><small class="note-text">Hướng dẫn: Nhập kết quả bằng chữ</small></td></tr>
+                            <tr><td class="fw-bold">2</td><td colspan="2"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="2" placeholder="Nhập chữ"><span id="res-2" class="res-icon"></span><small class="note-text">Nhập kết quả dạng phân số</small></td></tr>
                             <tr>
                                 <td class="fw-bold">3</td>
-                                <td><small>An</small><div class="d-flex align-items-center"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3An"><button class="btn-check-single" onclick="checkSingle('3An')">Check</button></div><span id="res-3An" class="res-icon"></span></td>
-                                <td><small>Bình</small><div class="d-flex align-items-center"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3Binh"><button class="btn-check-single" onclick="checkSingle('3Binh')">Check</button></div><span id="res-3Binh" class="res-icon"></span></td>
+                                <td><small>An</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3An" placeholder="Chữ"><span id="res-3An" class="res-icon"></span></td>
+                                <td><small>Bình</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="3Binh" placeholder="Chữ"><span id="res-3Binh" class="res-icon"></span></td>
                             </tr>
-                            <tr><td colspan="3"><small class="note-text">Hướng dẫn: Nhập số tiền bằng chữ (VD: Mười nghìn đồng)</small></td></tr>
-                            <tr><td class="fw-bold">4</td><td colspan="2"><div class="d-flex align-items-center"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="4"><button class="btn-check-single" onclick="checkSingle('4')">Check</button><span id="res-4" class="ms-2 res-icon"></span></div><small class="note-text">Hướng dẫn: Nhập kết quả số</small></td></tr>
-                            <tr><td class="fw-bold">5</td><td colspan="2"><div class="d-flex align-items-center"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="5"><button class="btn-check-single" onclick="checkSingle('5')">Check</button><span id="res-5" class="ms-2 res-icon"></span></div><small class="note-text">Hướng dẫn: Nhập diện tích bằng số</small></td></tr>
+                            <tr><td colspan="3"><small class="note-text">Nhập kết quả có dấu % (VD: 23.35%)</small></td></tr>
+                            <tr><td class="fw-bold">4</td><td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="4" placeholder="Số"><span id="res-4" class="res-icon"></span><small class="note-text">Đơn vị: m^{2}</small></td></tr>
+                            <tr><td class="fw-bold">5</td><td colspan="2"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="5" placeholder="Số"><span id="res-5" class="res-icon"></span><small class="note-text">Đơn vị: m^{2}</small></td></tr>
                             <tr>
                                 <td class="fw-bold">6</td>
-                                <td><small>6a (Chữ)</small><div class="d-flex align-items-center"><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a"><button class="btn-check-single" onclick="checkSingle('6a')">Check</button></div><span id="res-6a" class="res-icon"></span></td>
-                                <td><small>6b (Số)</small><div class="d-flex align-items-center"><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b"><button class="btn-check-single" onclick="checkSingle('6b')">Check</button></div><span id="res-6b" class="res-icon"></span></td>
+                                <td><small>6a</small><input type="text" class="form-control form-control-sm border-warning user-ans" data-cau="6a"><span id="res-6a" class="res-icon"></span></td>
+                                <td><small>6b</small><input type="number" class="form-control form-control-sm border-warning user-ans" data-cau="6b"><span id="res-6b" class="res-icon"></span></td>
                             </tr>
-                            <tr><td colspan="3"><small class="note-text">Hướng dẫn: 6a nhập tính chất, 6b nhập số cụ thể</small></td></tr>
+                            <tr><td colspan="3"><small class="note-text">6a nhập viết liền không dấu, 6 nhập kết quả dạng phân số.</small></td></tr>
                         </tbody>
                     </table>
-                    <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">KIỂM TRA HẾT ĐỀ</button>
+                    <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">CHẤM ĐIỂM</button>
                 </div>
             </div>
         </div>
@@ -178,45 +189,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // QUAN TRỌNG: Dán link Web App từ Apps Script của bạn vào đây
+        // QUAN TRỌNG: Link Apps Script
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
-        function checkSingle(maCau) {
-            const tende = document.getElementById('tenDe').value;
-            const input = document.querySelector(`.user-ans[data-cau="${maCau}"]`);
-            const ans = input.value;
-            const resSpan = document.getElementById(`res-${maCau}`);
-
-            if(!ans) return alert("Em nhập đáp án đã nhé!");
-            
-            resSpan.innerHTML = '<i class="fas fa-spinner fa-spin text-muted"></i>';
-
-            fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${encodeURIComponent(ans)}`)
-            .then(r => r.text())
-            .then(data => {
-                if(data === "TRUE") {
-                    resSpan.innerHTML = '<i class="fas fa-check text-success"></i>'; // Tick xanh
-                    input.style.borderColor = "green";
-                } else {
-                    resSpan.innerHTML = '<i class="fas fa-times text-danger"></i>'; // X đỏ
-                    input.style.borderColor = "red";
-                }
-            })
-            .catch(() => {
-                resSpan.innerHTML = '<i class="fas fa-exclamation-triangle text-warning"></i>';
-            });
-        }
-
         function checkAllAnswers() {
-            const inputs = document.querySelectorAll('.user-ans');
-            let hasValue = false;
-            inputs.forEach(input => { 
-                if(input.value) { 
-                    hasValue = true; 
-                    checkSingle(input.dataset.cau); 
-                } 
+            const tende = document.getElementById('tenDe').value;
+            if(!tende) return alert("Em chọn đề trước nhé!");
+
+            document.querySelectorAll('.user-ans').forEach(input => {
+                const maCau = input.dataset.cau;
+                const ans = input.value.trim(); // Xóa khoảng trắng thừa để tránh báo sai
+                if(!ans) return;
+
+                const resSpan = document.getElementById(`res-${maCau}`);
+                resSpan.innerHTML = '<i class="fas fa-spinner fa-spin text-muted"></i>';
+
+                fetch(`${scriptUrl}?tende=${encodeURIComponent(tende)}&macau=${maCau}&ans=${encodeURIComponent(ans)}`)
+                .then(r => r.text())
+                .then(data => {
+                    if(data.trim() === "TRUE") {
+                        resSpan.innerHTML = '<i class="fas fa-check text-success"></i>'; // Tick xanh
+                        input.style.borderColor = "green";
+                    } else {
+                        resSpan.innerHTML = '<i class="fas fa-times text-danger"></i>'; // X đỏ
+                        input.style.borderColor = "red";
+                    }
+                })
+                .catch(() => { resSpan.innerHTML = '<i class="fas fa-exclamation text-warning"></i>'; });
             });
-            if(!hasValue) alert("Chưa có đáp án nào để chấm cả!");
         }
 
         document.querySelectorAll('.mobile-link').forEach(link => {
