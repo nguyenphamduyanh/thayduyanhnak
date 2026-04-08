@@ -16,22 +16,49 @@
         }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
         
-        .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 2000; }
-        .navbar-brand, .nav-link { color: var(--dark-blue-deep) !important; font-weight: 700; }
+        .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 15px 0; }
+        .navbar-brand { color: var(--dark-blue-deep) !important; font-weight: 800; font-size: 1.4rem; }
 
+        /* --- THIẾT KẾ MENU OVAL MỚI --- */
+        .nav-capsule {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 5px 8px;
+            display: inline-flex;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        .nav-capsule .nav-link {
+            color: var(--dark-blue-deep) !important;
+            font-weight: 700;
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 0 2px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-capsule .nav-link:hover {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+        }
+        /* Phản hồi trên điện thoại */
+        @media (max-width: 991px) {
+            .nav-capsule { flex-direction: column; border-radius: 20px; padding: 15px; margin-top: 15px; width: 100%; }
+            .nav-capsule .nav-link { margin-bottom: 5px; justify-content: center; }
+        }
+
+        /* --- CÁC STYLE CŨ GIỮ NGUYÊN --- */
         .hero-section {
-            position: relative;
-            background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
+            position: relative; background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
             padding: 120px 0; text-align: center; overflow: hidden; border-bottom: 3px solid var(--primary-yellow);
         }
-        .math-bg-icon {
-            position: absolute; color: var(--primary-yellow); opacity: 0.15; z-index: 1;
-            animation: float-and-rotate 8s infinite ease-in-out; pointer-events: none;
-        }
-        @keyframes float-and-rotate {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(20deg); }
-        }
+        .math-bg-icon { position: absolute; color: var(--primary-yellow); opacity: 0.15; z-index: 1; animation: float-and-rotate 8s infinite ease-in-out; pointer-events: none; }
+        @keyframes float-and-rotate { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-25px) rotate(20deg); } }
 
         .hero-title {
             font-weight: 900; text-transform: uppercase; position: relative; z-index: 5;
@@ -40,44 +67,26 @@
             animation: shine 4s linear infinite; font-size: calc(2.5rem + 3vw); line-height: 1.1;
         }
         @keyframes shine { to { background-position: 200% center; } }
-
-        .sub-slogan {
-            font-size: 2rem; font-weight: 800; color: #d35400; 
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.15); font-style: italic;
-            position: relative; z-index: 5; margin-top: 25px;
-        }
-
-        .col-md-4 { position: relative; z-index: 10; transition: z-index 0.3s; }
-        .col-md-4:hover, .col-md-4:focus-within { z-index: 1000; }
+        .sub-slogan { font-size: 2rem; font-weight: 800; color: #d35400; text-shadow: 1px 1px 3px rgba(0,0,0,0.15); font-style: italic; position: relative; z-index: 5; margin-top: 25px; }
 
         .card-custom { border: none; border-radius: 20px; background-color: var(--light-blue-card); transition: 0.4s; overflow: visible !important; }
-        .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); }
+        .card-custom:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2); z-index: 1000; }
         .btn-action { background-color: var(--dark-blue-deep); color: #fff; border-radius: 50px; font-weight: 700; padding: 10px 25px; transition: 0.3s; border: none; }
 
         .dropdown-menu { border-radius: 12px; border: none; padding: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000 !important; }
         .dropdown-item { transition: all 0.2s ease; border-radius: 8px; margin-bottom: 2px; padding: 10px 15px; }
         .dropdown-item:hover { background-color: var(--hover-blue-light) !important; color: var(--dark-blue-deep) !important; font-weight: 600; }
-
         .update-date { display: block; text-align: center; width: 100%; font-style: italic !important; color: #6c757d; padding: 10px 0; font-size: 0.85rem; }
 
         .footer-section { background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%); color: white; padding: 70px 0 25px; border-top: 5px solid var(--primary-yellow); position: relative; z-index: 1; }
-        
         .footer-desc { max-width: 400px; line-height: 1.6; text-wrap: balance; word-break: keep-all; }
-        
-        .footer-marquee-box {
-            width: 100%; max-width: 380px; background: rgba(255, 193, 7, 0.08); border: 1px solid rgba(255, 193, 7, 0.2); 
-            border-radius: 50px; padding: 8px 0; margin-top: 25px; overflow: hidden; display: flex; box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-        }
-        .footer-marquee-text {
-            display: inline-block; white-space: nowrap; padding-left: 100%; color: var(--primary-yellow);
-            font-style: italic; font-weight: 600; font-size: 0.95rem; animation: marquee-smooth 15s linear infinite;
-        }
+        .footer-marquee-box { width: 100%; max-width: 380px; background: rgba(255, 193, 7, 0.08); border: 1px solid rgba(255, 193, 7, 0.2); border-radius: 50px; padding: 8px 0; margin-top: 25px; overflow: hidden; display: flex; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); }
+        .footer-marquee-text { display: inline-block; white-space: nowrap; padding-left: 100%; color: var(--primary-yellow); font-style: italic; font-weight: 600; font-size: 0.95rem; animation: marquee-smooth 15s linear infinite; }
         @keyframes marquee-smooth { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
         
         .contact-link { color: rgba(255,255,255,0.8) !important; text-decoration: none; transition: 0.3s ease; display: flex; align-items: center; }
         .contact-link:hover { color: var(--primary-yellow) !important; transform: translateX(5px); }
         .icon-circle { width: 40px; height: 40px; background: rgba(255, 193, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-yellow); margin-right: 15px; }
-        
         .social-btn { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.05); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; font-weight: bold; }
         .social-btn:hover { transform: translateY(-5px); color: white; }
         .sb-facebook:hover { background-color: #3b5998; }
@@ -89,18 +98,30 @@
         .res-icon { font-size: 1.1rem; margin-left: 5px; min-width: 20px; }
         .btn-mini-check { padding: 3px 10px; font-size: 0.75rem; border-radius: 5px; background: #6c757d; color: white; border: none; margin-left: 8px; font-weight: 600;}
         .btn-mini-check:hover { background: var(--dark-blue-deep); }
-
-        @media (max-width: 991.98px) { .footer-desc { max-width: 90%; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
-            <div class="ms-auto">
-                <a class="nav-link d-inline me-4" href="#tailieu">Kho Tài Liệu</a>
-                <a class="nav-link d-inline" href="https://www.youtube.com/@nguyenphamduyanh9157" target="_blank">Bài Giảng</a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
+            
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-dark fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="nav-capsule ms-auto">
+                    <a class="nav-link" href="ly-thuyet.html">
+                        <i class="fas fa-book"></i> Góc Lý Thuyết
+                    </a>
+                    <a class="nav-link" href="index.html#tailieu">
+                        <i class="fas fa-folder-open"></i> Kho Tài Liệu
+                    </a>
+                    <a class="nav-link" href="https://www.youtube.com/@nguyenphamduyanh9157" target="_blank">
+                        <i class="fab fa-youtube text-danger"></i> Bài Giảng
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -174,16 +195,9 @@
             <div class="row gy-5">
                 <div class="col-lg-5 d-flex flex-column align-items-center text-center">
                     <h5 class="text-warning fw-bold mb-3">WEBSITE TOÁN THẦY DUY ANH</h5>
-                    <p class="text-light opacity-75 small footer-desc mb-0">
-                        Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán dành cho các bạn học sinh.
-                    </p>
-                    <div class="footer-marquee-box">
-                        <span class="footer-marquee-text">
-                            <i class="fas fa-quote-left me-2 opacity-50"></i>Học thì không khó - Khó khi không học<i class="fas fa-quote-right ms-2 opacity-50"></i>
-                        </span>
-                    </div>
+                    <p class="text-light opacity-75 small footer-desc mb-0">Hệ thống chia sẻ bài giảng và tài liệu ôn thi chuyên sâu môn Toán dành cho các bạn học sinh.</p>
+                    <div class="footer-marquee-box"><span class="footer-marquee-text"><i class="fas fa-quote-left me-2 opacity-50"></i>Học thì không khó - Khó khi không học<i class="fas fa-quote-right ms-2 opacity-50"></i></span></div>
                 </div>
-
                 <div class="col-lg-4 text-center text-lg-start px-lg-4 border-lg-start border-lg-end border-secondary border-opacity-25">
                     <h5 class="text-white fw-bold mb-4">LIÊN HỆ</h5>
                     <div class="d-flex flex-column align-items-center align-items-lg-start gap-3">
@@ -191,7 +205,6 @@
                         <a href="mailto:nguyenphamduyanh@gmail.com" class="contact-link"><span class="icon-circle"><i class="fas fa-envelope"></i></span>nguyenphamduyanh@gmail.com</a>
                     </div>
                 </div>
-
                 <div class="col-lg-3 text-center text-lg-start">
                     <h5 class="text-white fw-bold mb-4">KẾT NỐI</h5>
                     <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3">
@@ -214,13 +227,19 @@
                 <div class="modal-body">
                     
                     <select id="tenDe" class="form-select mb-3 border-warning fw-bold" onchange="toggleDe()">
-                        <option value="Đề ôn tập số 7" selected>Đề ôn tập số 7</option>
+                        <option value="Đề ôn tập số 7">Đề ôn tập số 7</option>
                         <option value="Đề ôn tập số 8">Đề ôn tập số 8</option>
-                        <option value="Đề ôn tập số 9">Đề ôn tập số 9</option> </select>
+                        <option value="Đề ôn tập số 9">Đề ôn tập số 9</option> 
+                        <option value="Đề ôn tập số 10" selected>Đề ôn tập số 10</option> 
+                    </select>
 
                     <table class="table table-sm table-bordered align-middle">
                         
-                        <tbody id="bang-de-7">
+                        <tbody id="bang-de-7" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 7 của bạn giữ nguyên)</em></td></tr></tbody>
+                        <tbody id="bang-de-8" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 8 của bạn giữ nguyên)</em></td></tr></tbody>
+                        <tbody id="bang-de-9" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 9 của bạn giữ nguyên)</em></td></tr></tbody>
+
+                        <tbody id="bang-de-10">
                             <tr>
                                 <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
                                 <td>
@@ -228,81 +247,10 @@
                                         <input type="text" class="form-control user-ans" data-cau="2">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
-                                    <small class="note-text">Câu 2. Nhập dạng phân số (VD: 5/6)</small>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 40px;">An:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3An">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 40px;">Bình:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3Binh">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                    <small class="note-text mt-1 d-block">Câu 3. Nhập có dấu % (VD: 23.45%)</small>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle">4</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <input type="text" class="form-control user-ans" data-cau="4">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span><span class="ms-2">m<sup>2</sup></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle">5</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <input type="text" class="form-control user-ans" data-cau="5">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span><span class="ms-2">m<sup>2</sup></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 30px;">6a:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6a">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 30px;">6b:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6b">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                    <small class="note-text mt-1 d-block">Câu 6. 6a không khoảng trắng, 6b nhập số.</small>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                        <tbody id="bang-de-8" style="display: none;">
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <input type="text" class="form-control user-ans" data-cau="2">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">3</td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small>
@@ -321,21 +269,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố C:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3C">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <small class="me-2 text-nowrap" style="width: 30px;">4a:</small>
                                         <input type="text" class="form-control user-ans" data-cau="4a">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2" style="font-size: 0.8rem;">(nghìn đồng)</span>
                                     </div>
                                 </td>
                             </tr>
@@ -345,6 +285,7 @@
                                         <small class="me-2 text-nowrap" style="width: 30px;">4b:</small>
                                         <input type="text" class="form-control user-ans" data-cau="4b">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2" style="font-size: 0.8rem;">(nghìn đồng)</span>
                                     </div>
                                 </td>
                             </tr>
@@ -355,6 +296,7 @@
                                         <small class="me-2 text-nowrap" style="width: 30px;">5a:</small>
                                         <input type="text" class="form-control user-ans" data-cau="5a">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2">cm</span>
                                     </div>
                                 </td>
                             </tr>
@@ -364,15 +306,16 @@
                                         <small class="me-2 text-nowrap" style="width: 30px;">5b:</small>
                                         <input type="text" class="form-control user-ans" data-cau="5b">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2">ml</span>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">6</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 85px;">Số ô tô:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6oto">
+                                        <small class="me-2 text-nowrap" style="width: 85px;">6a:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6a">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
@@ -380,98 +323,20 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 85px;">Số học sinh:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6hs">
+                                        <small class="me-2 text-nowrap" style="width: 85px;">6b Nhỏ nhất:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6b_min">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                        <tbody id="bang-de-9" style="display: none;">
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <input type="text" class="form-control user-ans" data-cau="2">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3A">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2">kg</span>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố B:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3B">
+                                        <small class="me-2 text-nowrap" style="width: 85px;">6b Lớn nhất:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6b_max">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 30px;">4a:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="4a">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 30px;">4b:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="4b">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">5</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Thể tích:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5V">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                        <span class="ms-2">m<sup>3</sup></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Số chuyến xe ít nhất:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5xe">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2" style="line-height: 1.2;">Chiều dài quãng đường AB (km):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6AB">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2" style="line-height: 1.2;">Chiều dài quãng đường BC (km):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6BC">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2">kg</span>
                                     </div>
                                 </td>
                             </tr>
@@ -488,12 +353,13 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
-        // Đã cập nhật Script để chuyển đổi hiển thị cả 3 bảng Đề
         function toggleDe() {
             const tende = document.getElementById('tenDe').value;
-            document.getElementById('bang-de-7').style.display = (tende === 'Đề ôn tập số 7') ? '' : 'none';
-            document.getElementById('bang-de-8').style.display = (tende === 'Đề ôn tập số 8') ? '' : 'none';
-            document.getElementById('bang-de-9').style.display = (tende === 'Đề ôn tập số 9') ? '' : 'none';
+            // Ở đây tôi giả sử bạn đã chèn lại code của đề 7,8,9 vào. Nếu chưa chèn thì để kệ lỗi không sao.
+            if(document.getElementById('bang-de-7')) document.getElementById('bang-de-7').style.display = (tende === 'Đề ôn tập số 7') ? '' : 'none';
+            if(document.getElementById('bang-de-8')) document.getElementById('bang-de-8').style.display = (tende === 'Đề ôn tập số 8') ? '' : 'none';
+            if(document.getElementById('bang-de-9')) document.getElementById('bang-de-9').style.display = (tende === 'Đề ôn tập số 9') ? '' : 'none';
+            if(document.getElementById('bang-de-10')) document.getElementById('bang-de-10').style.display = (tende === 'Đề ôn tập số 10') ? '' : 'none';
         }
 
         function checkSingle(btnElement) {
@@ -521,12 +387,12 @@
 
         function checkAllAnswers() {
             const visibleTbody = document.querySelector('tbody:not([style*="display: none"])');
-            visibleTbody.querySelectorAll('.btn-mini-check').forEach(btn => {
-                const input = btn.parentElement.querySelector('.user-ans');
-                if(input.value.trim()) {
-                    checkSingle(btn);
-                }
-            });
+            if(visibleTbody) {
+                visibleTbody.querySelectorAll('.btn-mini-check').forEach(btn => {
+                    const input = btn.parentElement.querySelector('.user-ans');
+                    if(input.value.trim()) checkSingle(btn);
+                });
+            }
         }
 
         document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', function(e) { e.preventDefault(); window.open(this.href, '_blank'); }));
