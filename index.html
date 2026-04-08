@@ -19,7 +19,7 @@
         .navbar { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 2000; padding: 15px 0; }
         .navbar-brand { color: var(--dark-blue-deep) !important; font-weight: 800; font-size: 1.4rem; }
 
-        /* --- THIẾT KẾ MENU OVAL MỚI --- */
+        /* MENU OVAL */
         .nav-capsule {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 50px;
@@ -46,13 +46,11 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
         }
-        /* Phản hồi trên điện thoại */
         @media (max-width: 991px) {
             .nav-capsule { flex-direction: column; border-radius: 20px; padding: 15px; margin-top: 15px; width: 100%; }
             .nav-capsule .nav-link { margin-bottom: 5px; justify-content: center; }
         }
 
-        /* --- CÁC STYLE CŨ GIỮ NGUYÊN --- */
         .hero-section {
             position: relative; background: linear-gradient(135deg, #fff9e6 0%, #fff2cc 100%);
             padding: 120px 0; text-align: center; overflow: hidden; border-bottom: 3px solid var(--primary-yellow);
@@ -235,9 +233,262 @@
 
                     <table class="table table-sm table-bordered align-middle">
                         
-                        <tbody id="bang-de-7" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 7 của bạn giữ nguyên)</em></td></tr></tbody>
-                        <tbody id="bang-de-8" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 8 của bạn giữ nguyên)</em></td></tr></tbody>
-                        <tbody id="bang-de-9" style="display: none;"><tr><td colspan="2" class="text-center"><em>(Code đề 9 của bạn giữ nguyên)</em></td></tr></tbody>
+                        <tbody id="bang-de-7" style="display: none;">
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <input type="text" class="form-control user-ans" data-cau="2">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                    <small class="note-text">Câu 2. Nhập dạng phân số (VD: 5/6)</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 40px;">An:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3An">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 40px;">Bình:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3Binh">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                    <small class="note-text mt-1 d-block">Câu 3. Nhập có dấu % (VD: 23.45%)</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle">4</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <input type="text" class="form-control user-ans" data-cau="4">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span><span class="ms-2">m<sup>2</sup></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle">5</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <input type="text" class="form-control user-ans" data-cau="5">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span><span class="ms-2">m<sup>2</sup></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">6a:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6a">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">6b:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6b">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                    <small class="note-text mt-1 d-block">Câu 6. 6a không khoảng trắng, 6b nhập số.</small>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tbody id="bang-de-8" style="display: none;">
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <input type="text" class="form-control user-ans" data-cau="2">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">3</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3A">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố B:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3B">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố C:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3C">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">4a:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="4a">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">4b:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="4b">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">5</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">5a:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5a">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">5b:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5b">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 85px;">Số ô tô:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6oto">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 85px;">Số học sinh:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6hs">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tbody id="bang-de-9" style="display: none;">
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <input type="text" class="form-control user-ans" data-cau="2">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3A">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố B:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="3B">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">4a:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="4a">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 30px;">4b:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="4b">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">5</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Thể tích:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5V">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                        <span class="ms-2">m<sup>3</sup></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 135px;">Số chuyến xe ít nhất:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5xe">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2" style="line-height: 1.2;">Chiều dài quãng đường AB (km):</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6AB">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2" style="line-height: 1.2;">Chiều dài quãng đường BC (km):</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6BC">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
 
                         <tbody id="bang-de-10">
                             <tr>
@@ -353,13 +604,13 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
+        // Hàm ẩn/hiện bảng dựa vào Select (Hỗ trợ cả 4 đề)
         function toggleDe() {
             const tende = document.getElementById('tenDe').value;
-            // Ở đây tôi giả sử bạn đã chèn lại code của đề 7,8,9 vào. Nếu chưa chèn thì để kệ lỗi không sao.
-            if(document.getElementById('bang-de-7')) document.getElementById('bang-de-7').style.display = (tende === 'Đề ôn tập số 7') ? '' : 'none';
-            if(document.getElementById('bang-de-8')) document.getElementById('bang-de-8').style.display = (tende === 'Đề ôn tập số 8') ? '' : 'none';
-            if(document.getElementById('bang-de-9')) document.getElementById('bang-de-9').style.display = (tende === 'Đề ôn tập số 9') ? '' : 'none';
-            if(document.getElementById('bang-de-10')) document.getElementById('bang-de-10').style.display = (tende === 'Đề ôn tập số 10') ? '' : 'none';
+            document.getElementById('bang-de-7').style.display = (tende === 'Đề ôn tập số 7') ? '' : 'none';
+            document.getElementById('bang-de-8').style.display = (tende === 'Đề ôn tập số 8') ? '' : 'none';
+            document.getElementById('bang-de-9').style.display = (tende === 'Đề ôn tập số 9') ? '' : 'none';
+            document.getElementById('bang-de-10').style.display = (tende === 'Đề ôn tập số 10') ? '' : 'none';
         }
 
         function checkSingle(btnElement) {
