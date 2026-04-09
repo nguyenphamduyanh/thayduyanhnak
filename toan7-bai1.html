@@ -3,250 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Các đường đặc biệt trong tam giác - Toán Thầy Duy Anh</title>
+    <title>Infographic 4 Đường Đặc Biệt Trong Tam Giác</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <!-- Tích hợp Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Tích hợp React và ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Tích hợp Babel để biên dịch JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+    <!-- Cấu hình Font chữ -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* GIỮ LẠI THIẾT KẾ NAVBAR CỦA TRANG CHỦ */
-        :root {
-            --primary-yellow: #FFC107;
-            --dark-blue-deep: #1a252f; 
-        }
-        .navbar-custom { background-color: var(--primary-yellow); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px 0; }
-        .navbar-brand { color: var(--dark-blue-deep) !important; font-weight: 800; font-size: 1.4rem; text-decoration: none;}
-        .nav-capsule {
-            background-color: rgba(255, 255, 255, 0.9); border-radius: 50px; padding: 5px 8px;
-            display: inline-flex; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-        .nav-capsule .nav-link {
-            color: var(--dark-blue-deep) !important; font-weight: 700; border-radius: 50px; padding: 8px 20px;
-            margin: 0 2px; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; text-decoration: none;
-        }
-        .nav-capsule .nav-link:hover, .nav-capsule .nav-link.active {
-            background: linear-gradient(135deg, #ff9800, #ff5722); color: white !important;
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
-        }
-        @media (max-width: 991px) { .nav-capsule { flex-direction: column; border-radius: 20px; padding: 15px; width: 100%; margin-top: 15px;} }
-        
-        /* Ngăn xung đột CSS */
-        a { text-decoration: none; }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-200 font-sans">
+<body>
+    <!-- Container chính cho ứng dụng React -->
+    <div id="root"></div>
 
-    <nav class="navbar-custom sticky-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="index.html"><i class="fas fa-lightbulb me-2"></i>TOÁN THẦY DUY ANH</a>
-            <div class="d-none d-lg-block">
-                <div class="nav-capsule">
-                    <a class="nav-link active" href="ly-thuyet.html"><i class="fas fa-book"></i> Góc Lý Thuyết</a>
-                    <a class="nav-link" href="index.html#tailieu"><i class="fas fa-folder-open"></i> Kho Tài Liệu</a>
-                    <a class="nav-link" href="https://www.youtube.com/@nguyenphamduyanh9157" target="_blank"><i class="fab fa-youtube text-danger"></i> Bài Giảng</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Mã nguồn React/JSX -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    <div class="min-h-screen p-4 md:p-8 flex justify-center">
-        <div 
-            class="bg-white shadow-2xl w-full max-w-[210mm] min-h-[297mm] p-10 relative overflow-hidden text-slate-800 border-x border-slate-300"
-            style="background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 20px 20px;"
-        >
-            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-blue-200/50 rotate-1 shadow-sm border-b border-blue-300 z-10"></div>
-            <div class="absolute -top-4 -left-10 w-40 h-20 bg-yellow-100/40 -rotate-45"></div>
+        const App = () => {
+            const [headerImg, setHeaderImg] = useState(null);
+            const [loading, setLoading] = useState(true);
 
-            <div class="relative mb-12 text-center mt-8">
-                <div class="w-full h-40 rounded-2xl shadow-md mb-6 border-4 border-white flex flex-col justify-center items-center" style="background: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%);">
-                    <i class="fas fa-compass-drafting text-blue-300 text-6xl mb-2 opacity-50"></i>
-                </div>
+            useEffect(() => {
+                // Sử dụng ảnh tĩnh chất lượng cao thay cho API để đảm bảo luôn hiển thị trên web cá nhân
+                const imageTimer = setTimeout(() => {
+                    setHeaderImg("https://images.unsplash.com/photo-1518133835878-5a93ac3f0c0f?q=80&w=1200&auto=format&fit=crop");
+                    setLoading(false);
+                }, 800); // Giả lập thời gian tải để giữ hiệu ứng skeleton loading
                 
-                <h1 class="text-4xl font-black text-slate-800 uppercase tracking-tight mb-2 relative inline-block">
-                    <span class="relative z-10">CÁC ĐƯỜNG ĐẶC BIỆT TRONG TAM GIÁC</span>
-                    <span class="absolute bottom-1 left-0 w-full h-3 bg-yellow-200 -z-10"></span>
-                </h1>
-                <p class="text-slate-500 font-medium text-lg italic mt-2">Thầy Duy Anh - THCS Nguyễn An Khương</p>
-            </div>
+                return () => clearTimeout(imageTimer);
+            }, []);
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                
-                <div class="relative group">
-                    <div class="absolute -top-2 -left-2 w-8 h-8 bg-red-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">1</div>
-                    <div class="bg-white/80 backdrop-blur-sm border-2 border-red-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-                        <h2 class="text-xl font-extrabold text-red-600 mb-4 flex items-center">
-                            <span class="w-2 h-6 bg-red-500 mr-2 rounded-full"></span> Đường Trung Tuyến
-                        </h2>
-                        <div class="mb-6 bg-red-50/50 p-2 rounded-xl">
-                            <svg viewBox="0 0 180 160" class="w-full h-auto drop-shadow-sm">
-                                <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" stroke-width="2.5" stroke-linejoin="round" />
-                                <line x1="100" y1="20" x2="90" y2="140" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2" />
-                                <line x1="20" y1="140" x2="130" y2="80" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2" />
-                                <line x1="160" y1="140" x2="60" y2="80" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2" />
-                                <line x1="75.8" y1="47.2" x2="84.2" y2="52.8" stroke="#334155" stroke-width="1.5" stroke-linecap="round" />
-                                <line x1="35.8" y1="107.2" x2="44.2" y2="112.8" stroke="#334155" stroke-width="1.5" stroke-linecap="round" />
-                                <g stroke="#334155" stroke-width="1.5" stroke-linecap="round">
-                                    <line x1="109.9" y1="50.9" x2="118.8" y2="46.4" />
-                                    <line x1="111.2" y1="53.6" x2="120.1" y2="49.1" />
-                                    <line x1="139.9" y1="110.9" x2="148.8" y2="106.4" />
-                                    <line x1="141.2" y1="113.6" x2="150.1" y2="109.1" />
-                                </g>
-                                <g stroke="#334155" stroke-width="1.5" stroke-linecap="round">
-                                    <line x1="52" y1="136" x2="52" y2="144" /><line x1="55" y1="136" x2="55" y2="144" /><line x1="58" y1="136" x2="58" y2="144" />
-                                    <line x1="122" y1="136" x2="122" y2="144" /><line x1="125" y1="136" x2="125" y2="144" /><line x1="128" y1="136" x2="128" y2="144" />
-                                </g>
-                                <circle cx="100" cy="20" r="3" fill="#334155" /><circle cx="20" cy="140" r="3" fill="#334155" /><circle cx="160" cy="140" r="3" fill="#334155" />
-                                <circle cx="90" cy="140" r="3" fill="#ef4444" /><circle cx="130" cy="80" r="3" fill="#ef4444" /><circle cx="60" cy="80" r="3" fill="#ef4444" />
-                                <circle cx="93.33" cy="100" r="4.5" fill="#ef4444" />
-                                <text x="103" y="103" class="text-[14px] font-bold fill-red-700">G</text>
-                            </svg>
+            // SVG Components (Tọa độ chuẩn xác 100%)
+            const TriangleMedian = () => (
+                <svg viewBox="0 0 180 160" className="w-full h-auto drop-shadow-sm">
+                    <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" strokeWidth="2.5" strokeLinejoin="round" />
+                    
+                    {/* Medians */}
+                    <line x1="100" y1="20" x2="90" y2="140" stroke="#ef4444" strokeWidth="2" strokeDasharray="4 2" />
+                    <line x1="20" y1="140" x2="130" y2="80" stroke="#ef4444" strokeWidth="2" strokeDasharray="4 2" />
+                    <line x1="160" y1="140" x2="60" y2="80" stroke="#ef4444" strokeWidth="2" strokeDasharray="4 2" />
+
+                    {/* Ticks for AB (single) */}
+                    <line x1="75.8" y1="47.2" x2="84.2" y2="52.8" stroke="#334155" strokeWidth="1.5" strokeLinecap="round" />
+                    <line x1="35.8" y1="107.2" x2="44.2" y2="112.8" stroke="#334155" strokeWidth="1.5" strokeLinecap="round" />
+
+                    {/* Ticks for AC (double) */}
+                    <g stroke="#334155" strokeWidth="1.5" strokeLinecap="round">
+                        <line x1="109.9" y1="50.9" x2="118.8" y2="46.4" />
+                        <line x1="111.2" y1="53.6" x2="120.1" y2="49.1" />
+                        <line x1="139.9" y1="110.9" x2="148.8" y2="106.4" />
+                        <line x1="141.2" y1="113.6" x2="150.1" y2="109.1" />
+                    </g>
+
+                    {/* Ticks for BC (triple) */}
+                    <g stroke="#334155" strokeWidth="1.5" strokeLinecap="round">
+                        <line x1="52" y1="136" x2="52" y2="144" />
+                        <line x1="55" y1="136" x2="55" y2="144" />
+                        <line x1="58" y1="136" x2="58" y2="144" />
+                        <line x1="122" y1="136" x2="122" y2="144" />
+                        <line x1="125" y1="136" x2="125" y2="144" />
+                        <line x1="128" y1="136" x2="128" y2="144" />
+                    </g>
+
+                    {/* Points */}
+                    <circle cx="100" cy="20" r="3" fill="#334155" />
+                    <circle cx="20" cy="140" r="3" fill="#334155" />
+                    <circle cx="160" cy="140" r="3" fill="#334155" />
+                    
+                    <circle cx="90" cy="140" r="3" fill="#ef4444" />
+                    <circle cx="130" cy="80" r="3" fill="#ef4444" />
+                    <circle cx="60" cy="80" r="3" fill="#ef4444" />
+
+                    <circle cx="93.33" cy="100" r="4.5" fill="#ef4444" />
+                    <text x="103" y="103" className="text-[14px] font-bold fill-red-700">G</text>
+                </svg>
+            );
+
+            const TriangleAltitude = () => (
+                <svg viewBox="0 0 180 160" className="w-full h-auto drop-shadow-sm">
+                    <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" strokeWidth="2.5" strokeLinejoin="round" />
+                    
+                    {/* Altitudes */}
+                    <line x1="100" y1="20" x2="100" y2="140" stroke="#3b82f6" strokeWidth="2" />
+                    <line x1="20" y1="140" x2="132" y2="84" stroke="#3b82f6" strokeWidth="2" />
+                    <line x1="160" y1="140" x2="63.08" y2="75.38" stroke="#3b82f6" strokeWidth="2" />
+
+                    {/* Exact Right angle symbols */}
+                    <polyline points="100,134 106,134 106,140" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeLinejoin="miter"/>
+                    <polyline points="132,84 134.68,89.36 129.32,92.04 126.64,86.68" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeLinejoin="miter"/>
+                    <polyline points="63.08,75.38 66.41,70.39 71.40,73.72 68.07,78.71" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeLinejoin="miter"/>
+
+                    {/* Points */}
+                    <circle cx="100" cy="100" r="4.5" fill="#3b82f6" />
+                    <text x="108" y="105" className="text-[14px] font-bold fill-blue-700">H</text>
+                </svg>
+            );
+
+            const TrianglePerpendicular = () => (
+                <svg viewBox="0 0 180 160" className="w-full h-auto drop-shadow-sm">
+                    <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" strokeWidth="2.5" strokeLinejoin="round" />
+                    
+                    {/* Circumcircle */}
+                    <circle cx="90" cy="100" r="80.62" fill="none" stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"/>
+
+                    {/* Perpendicular Bisectors */}
+                    <line x1="90" y1="145" x2="90" y2="30" stroke="#10b981" strokeWidth="2" />
+                    <line x1="150" y1="70" x2="60" y2="115" stroke="#10b981" strokeWidth="2" />
+                    <line x1="30" y1="60" x2="120" y2="120" stroke="#10b981" strokeWidth="2" />
+
+                    {/* Right angle symbols at midpoints */}
+                    <polyline points="90,140 96,140 96,134 90,134" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinejoin="miter" />
+                    <polyline points="130,80 132.68,85.36 127.32,88.04 124.64,82.68" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinejoin="miter" />
+                    <polyline points="60,80 63.33,75.01 68.32,78.34 64.99,83.33" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinejoin="miter" />
+
+                    {/* Midpoints */}
+                    <circle cx="90" cy="140" r="3" fill="#10b981" />
+                    <circle cx="130" cy="80" r="3" fill="#10b981" />
+                    <circle cx="60" cy="80" r="3" fill="#10b981" />
+
+                    <circle cx="90" cy="100" r="4.5" fill="#10b981" />
+                    <text x="96" y="96" className="text-[14px] font-bold fill-emerald-700">O</text>
+                </svg>
+            );
+
+            const TriangleAngleBisector = () => (
+                <svg viewBox="0 0 180 160" className="w-full h-auto drop-shadow-sm">
+                    <defs>
+                        <clipPath id="triClip">
+                            <path d="M100 20 L20 140 L160 140 Z" />
+                        </clipPath>
+                    </defs>
+                    <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" strokeWidth="2.5" strokeLinejoin="round" />
+                    
+                    {/* Exact Angle Arcs via clipPath */}
+                    <circle cx="100" cy="20" r="22" fill="none" stroke="#f59e0b" strokeWidth="2" clipPath="url(#triClip)" />
+                    <circle cx="20" cy="140" r="26" fill="none" stroke="#f59e0b" strokeWidth="2" clipPath="url(#triClip)" />
+                    <circle cx="160" cy="140" r="26" fill="none" stroke="#f59e0b" strokeWidth="2" clipPath="url(#triClip)" />
+
+                    {/* Incircle */}
+                    <circle cx="95.03" cy="99.85" r="40.15" fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"/>
+
+                    {/* Angle Bisectors */}
+                    <line x1="100" y1="20" x2="92.47" y2="140" stroke="#f59e0b" strokeWidth="2" />
+                    <line x1="20" y1="140" x2="130.41" y2="80.89" stroke="#f59e0b" strokeWidth="2" />
+                    <line x1="160" y1="140" x2="60.84" y2="78.68" stroke="#f59e0b" strokeWidth="2" />
+
+                    <circle cx="95.03" cy="99.85" r="4.5" fill="#f59e0b" />
+                    <text x="102" y="105" className="text-[14px] font-bold fill-amber-700">I</text>
+                </svg>
+            );
+
+            return (
+                <div className="min-h-screen bg-slate-200 p-4 md:p-8 flex justify-center font-sans">
+                    {/* Paper Container with Grid Background */}
+                    <div 
+                        className="bg-white shadow-2xl w-full max-w-[210mm] min-h-[297mm] p-10 relative overflow-hidden text-slate-800 border-x border-slate-300"
+                        style={{
+                            backgroundImage: 'radial-gradient(#e5e7eb 1px, transparent 1px)',
+                            backgroundSize: '20px 20px'
+                        }}
+                    >
+                        {/* Washi Tape Decorations */}
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-blue-200/50 rotate-1 shadow-sm border-b border-blue-300 z-10"></div>
+                        <div className="absolute -top-4 -left-10 w-40 h-20 bg-yellow-100/40 -rotate-45"></div>
+
+                        {/* Header Section */}
+                        <div className="relative mb-12 text-center">
+                            {loading ? (
+                                <div className="w-full h-32 bg-slate-100 animate-pulse rounded-xl mb-4 flex items-center justify-center text-slate-400">
+                                    Đang tải hình ảnh minh họa...
+                                </div>
+                            ) : (
+                                headerImg && (
+                                    <img 
+                                        src={headerImg} 
+                                        alt="Header illustration" 
+                                        className="w-full h-40 object-cover rounded-2xl shadow-md mb-6 border-4 border-white"
+                                    />
+                                )
+                            )}
+                            
+                            <h1 className="text-4xl font-black text-slate-800 uppercase tracking-tight mb-2 relative inline-block">
+                                <span className="relative z-10">Bản Đồ 4 Đường Đặc Biệt</span>
+                                <span className="absolute bottom-1 left-0 w-full h-3 bg-yellow-200 -z-10"></span>
+                            </h1>
+                            <p className="text-slate-500 font-medium text-lg italic">Đồ hoạ SVG tỉ lệ chuẩn xác 100% theo hệ thức toán học</p>
                         </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="bg-red-50 p-2 rounded-lg"><span class="font-bold text-red-700">Định nghĩa:</span> Nối từ đỉnh đến trung điểm cạnh đối diện.</p>
-                            <div class="p-3 bg-white border border-red-100 rounded-xl shadow-inner">
-                                <p class="font-bold mb-1 text-red-800">📌 Tính chất:</p>
-                                <ul class="space-y-1 text-slate-600 mb-0 ps-0">
-                                    <li>• Giao nhau tại <strong>Trọng tâm G</strong>.</li>
-                                    <li>• Tỉ lệ: Khoảng cách từ G đến đỉnh bằng <strong>2/3</strong> đường trung tuyến.</li>
-                                </ul>
-                                <div class="mt-3 py-1 px-3 bg-red-600 text-white rounded-lg text-center font-bold text-base">
-                                    \[ AG = \frac{2}{3} AM \]
+
+                        {/* 2x2 Content Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            
+                            {/* Section 1: Trung Tuyến */}
+                            <div className="relative group">
+                                <div className="absolute -top-2 -left-2 w-8 h-8 bg-red-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">1</div>
+                                <div className="bg-white/80 backdrop-blur-sm border-2 border-red-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                                    <h2 className="text-xl font-extrabold text-red-600 mb-4 flex items-center">
+                                        <span className="w-2 h-6 bg-red-500 mr-2 rounded-full"></span>
+                                        Đường Trung Tuyến
+                                    </h2>
+                                    <div className="mb-6 bg-red-50/50 p-2 rounded-xl">
+                                        <TriangleMedian />
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <p className="bg-red-50 p-2 rounded-lg"><span className="font-bold text-red-700">Định nghĩa:</span> Nối từ đỉnh đến trung điểm cạnh đối diện.</p>
+                                        <div className="p-3 bg-white border border-red-100 rounded-xl shadow-inner">
+                                            <p className="font-bold mb-1 text-red-800">📌 Tính chất:</p>
+                                            <ul className="space-y-1 text-slate-600">
+                                                <li>• Giao nhau tại <strong>Trọng tâm G</strong>.</li>
+                                                <li>• Tỉ lệ: Khoảng cách từ G đến đỉnh bằng <strong>2/3</strong> đường trung tuyến.</li>
+                                            </ul>
+                                            <div className="mt-3 py-1 px-3 bg-red-600 text-white rounded-lg text-center font-bold text-base">
+                                                $AG = 2/3 AM$
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="relative group">
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">2</div>
-                    <div class="bg-white/80 backdrop-blur-sm border-2 border-blue-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-                        <h2 class="text-xl font-extrabold text-blue-600 mb-4 flex items-center">
-                            <span class="w-2 h-6 bg-blue-500 mr-2 rounded-full"></span> Đường Cao
-                        </h2>
-                        <div class="mb-6 bg-blue-50/50 p-2 rounded-xl">
-                            <svg viewBox="0 0 180 160" class="w-full h-auto drop-shadow-sm">
-                                <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" stroke-width="2.5" stroke-linejoin="round" />
-                                <line x1="100" y1="20" x2="100" y2="140" stroke="#3b82f6" stroke-width="2" />
-                                <line x1="20" y1="140" x2="132" y2="84" stroke="#3b82f6" stroke-width="2" />
-                                <line x1="160" y1="140" x2="63.08" y2="75.38" stroke="#3b82f6" stroke-width="2" />
-                                <polyline points="100,134 106,134 106,140" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="miter"/>
-                                <polyline points="132,84 134.68,89.36 129.32,92.04 126.64,86.68" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="miter"/>
-                                <polyline points="63.08,75.38 66.41,70.39 71.40,73.72 68.07,78.71" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="miter"/>
-                                <circle cx="100" cy="100" r="4.5" fill="#3b82f6" />
-                                <text x="108" y="105" class="text-[14px] font-bold fill-blue-700">H</text>
-                            </svg>
+                            {/* Section 2: Đường Cao */}
+                            <div className="relative group">
+                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">2</div>
+                                <div className="bg-white/80 backdrop-blur-sm border-2 border-blue-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                                    <h2 className="text-xl font-extrabold text-blue-600 mb-4 flex items-center">
+                                        <span className="w-2 h-6 bg-blue-500 mr-2 rounded-full"></span>
+                                        Đường Cao
+                                    </h2>
+                                    <div className="mb-6 bg-blue-50/50 p-2 rounded-xl">
+                                        <TriangleAltitude />
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <p className="bg-blue-50 p-2 rounded-lg"><span className="font-bold text-blue-700">Định nghĩa:</span> Kẻ từ đỉnh và vuông góc với cạnh đối diện.</p>
+                                        <div className="p-3 bg-white border border-blue-100 rounded-xl shadow-inner">
+                                            <p className="font-bold mb-1 text-blue-800">📌 Tính chất:</p>
+                                            <ul className="space-y-1 text-slate-600">
+                                                <li>• Giao nhau tại <strong>Trực tâm H</strong>.</li>
+                                                <li>• Vị trí H có thể ở trong, ngoài hoặc tại đỉnh của tam giác.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Section 3: Trung Trực */}
+                            <div className="relative group">
+                                <div className="absolute -top-2 -left-2 w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">3</div>
+                                <div className="bg-white/80 backdrop-blur-sm border-2 border-emerald-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                                    <h2 className="text-xl font-extrabold text-emerald-600 mb-4 flex items-center">
+                                        <span className="w-2 h-6 bg-emerald-500 mr-2 rounded-full"></span>
+                                        Đường Trung Trực
+                                    </h2>
+                                    <div className="mb-6 bg-emerald-50/50 p-2 rounded-xl">
+                                        <TrianglePerpendicular />
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <p className="bg-emerald-50 p-2 rounded-lg"><span className="font-bold text-emerald-700">Định nghĩa:</span> Vuông góc với cạnh tại trung điểm của nó.</p>
+                                        <div className="p-3 bg-white border border-emerald-100 rounded-xl shadow-inner">
+                                            <p className="font-bold mb-1 text-emerald-800">📌 Tính chất:</p>
+                                            <ul className="space-y-1 text-slate-600">
+                                                <li>• Giao nhau tại <strong>Tâm O</strong>.</li>
+                                                <li>• O là tâm đường tròn <strong>ngoại tiếp</strong> (cách đều 3 đỉnh).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Section 4: Phân Giác */}
+                            <div className="relative group">
+                                <div className="absolute -top-2 -right-2 w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">4</div>
+                                <div className="bg-white/80 backdrop-blur-sm border-2 border-amber-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                                    <h2 className="text-xl font-extrabold text-amber-600 mb-4 flex items-center">
+                                        <span className="w-2 h-6 bg-amber-500 mr-2 rounded-full"></span>
+                                        Đường Phân Giác
+                                    </h2>
+                                    <div className="mb-6 bg-amber-50/50 p-2 rounded-xl">
+                                        <TriangleAngleBisector />
+                                    </div>
+                                    <div className="space-y-3 text-sm">
+                                        <p className="bg-amber-50 p-2 rounded-lg"><span className="font-bold text-amber-700">Định nghĩa:</span> Chia một góc thành hai phần bằng nhau.</p>
+                                        <div className="p-3 bg-white border border-amber-100 rounded-xl shadow-inner">
+                                            <p className="font-bold mb-1 text-amber-800">📌 Tính chất:</p>
+                                            <ul className="space-y-1 text-slate-600">
+                                                <li>• Giao nhau tại <strong>Tâm I</strong>.</li>
+                                                <li>• I là tâm đường tròn <strong>nội tiếp</strong> (cách đều 3 cạnh).</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="bg-blue-50 p-2 rounded-lg"><span class="font-bold text-blue-700">Định nghĩa:</span> Kẻ từ đỉnh và vuông góc với cạnh đối diện.</p>
-                            <div class="p-3 bg-white border border-blue-100 rounded-xl shadow-inner">
-                                <p class="font-bold mb-1 text-blue-800">📌 Tính chất:</p>
-                                <ul class="space-y-1 text-slate-600 mb-0 ps-0">
-                                    <li>• Giao nhau tại <strong>Trực tâm H</strong>.</li>
-                                    <li>• Vị trí H có thể ở trong, ngoài hoặc tại đỉnh của tam giác.</li>
-                                </ul>
+
+                        {/* Decorative elements */}
+                        <div className="mt-12 p-6 bg-slate-800 text-white rounded-3xl relative overflow-hidden shadow-xl">
+                            <div className="absolute top-0 right-0 p-4 opacity-10">
+                                <svg width="100" height="100" viewBox="0 0 100 100">
+                                    <polygon points="50,10 90,90 10,90" fill="white" />
+                                </svg>
+                            </div>
+                            <h3 className="text-lg font-bold mb-2 flex items-center">
+                                <span className="mr-2 text-yellow-400">💡</span> Bí kíp ghi nhớ:
+                            </h3>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                                Trong một <strong>tam giác đều</strong>, cả 4 loại đường đặc biệt này đều trùng nhau, và 4 điểm giao nhau (G, H, O, I) cũng trùng làm một. Đây chính là "vẻ đẹp đối xứng" tuyệt đối trong hình học!
+                            </p>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="mt-8 flex justify-between items-end border-t border-slate-200 pt-4 text-slate-400 text-[10px] uppercase tracking-widest">
+                            <div className="flex space-x-4">
+                                <span>📚 Toán học THCS</span>
+                            </div>
+                            <div className="text-right flex flex-col space-y-1 items-end">
+                                <span>Thầy Duy Anh • THCS Nguyễn An Khương</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            );
+        };
 
-                <div class="relative group">
-                    <div class="absolute -top-2 -left-2 w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">3</div>
-                    <div class="bg-white/80 backdrop-blur-sm border-2 border-emerald-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-                        <h2 class="text-xl font-extrabold text-emerald-600 mb-4 flex items-center">
-                            <span class="w-2 h-6 bg-emerald-500 mr-2 rounded-full"></span> Đường Trung Trực
-                        </h2>
-                        <div class="mb-6 bg-emerald-50/50 p-2 rounded-xl">
-                            <svg viewBox="0 0 180 160" class="w-full h-auto drop-shadow-sm">
-                                <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" stroke-width="2.5" stroke-linejoin="round" />
-                                <circle cx="90" cy="100" r="80.62" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
-                                <line x1="90" y1="145" x2="90" y2="30" stroke="#10b981" stroke-width="2" />
-                                <line x1="150" y1="70" x2="60" y2="115" stroke="#10b981" stroke-width="2" />
-                                <line x1="30" y1="60" x2="120" y2="120" stroke="#10b981" stroke-width="2" />
-                                <polyline points="90,140 96,140 96,134 90,134" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="miter" />
-                                <polyline points="130,80 132.68,85.36 127.32,88.04 124.64,82.68" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="miter" />
-                                <polyline points="60,80 63.33,75.01 68.32,78.34 64.99,83.33" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linejoin="miter" />
-                                <circle cx="90" cy="140" r="3" fill="#10b981" /><circle cx="130" cy="80" r="3" fill="#10b981" /><circle cx="60" cy="80" r="3" fill="#10b981" />
-                                <circle cx="90" cy="100" r="4.5" fill="#10b981" />
-                                <text x="96" y="96" class="text-[14px] font-bold fill-emerald-700">O</text>
-                            </svg>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="bg-emerald-50 p-2 rounded-lg"><span class="font-bold text-emerald-700">Định nghĩa:</span> Vuông góc với cạnh tại trung điểm của nó.</p>
-                            <div class="p-3 bg-white border border-emerald-100 rounded-xl shadow-inner">
-                                <p class="font-bold mb-1 text-emerald-800">📌 Tính chất:</p>
-                                <ul class="space-y-1 text-slate-600 mb-0 ps-0">
-                                    <li>• Giao nhau tại <strong>Tâm O</strong>.</li>
-                                    <li>• O là tâm đường tròn <strong>ngoại tiếp</strong> (cách đều 3 đỉnh).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center text-white font-bold z-10 shadow-md">4</div>
-                    <div class="bg-white/80 backdrop-blur-sm border-2 border-amber-200 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-                        <h2 class="text-xl font-extrabold text-amber-600 mb-4 flex items-center">
-                            <span class="w-2 h-6 bg-amber-500 mr-2 rounded-full"></span> Đường Phân Giác
-                        </h2>
-                        <div class="mb-6 bg-amber-50/50 p-2 rounded-xl">
-                            <svg viewBox="0 0 180 160" class="w-full h-auto drop-shadow-sm">
-                                <defs><clipPath id="triClip"><path d="M100 20 L20 140 L160 140 Z" /></clipPath></defs>
-                                <path d="M100 20 L20 140 L160 140 Z" fill="white" stroke="#334155" stroke-width="2.5" stroke-linejoin="round" />
-                                <circle cx="100" cy="20" r="22" fill="none" stroke="#f59e0b" stroke-width="2" clip-path="url(#triClip)" />
-                                <circle cx="20" cy="140" r="26" fill="none" stroke="#f59e0b" stroke-width="2" clip-path="url(#triClip)" />
-                                <circle cx="160" cy="140" r="26" fill="none" stroke="#f59e0b" stroke-width="2" clip-path="url(#triClip)" />
-                                <circle cx="95.03" cy="99.85" r="40.15" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
-                                <line x1="100" y1="20" x2="92.47" y2="140" stroke="#f59e0b" stroke-width="2" />
-                                <line x1="20" y1="140" x2="130.41" y2="80.89" stroke="#f59e0b" stroke-width="2" />
-                                <line x1="160" y1="140" x2="60.84" y2="78.68" stroke="#f59e0b" stroke-width="2" />
-                                <circle cx="95.03" cy="99.85" r="4.5" fill="#f59e0b" />
-                                <text x="102" y="105" class="text-[14px] font-bold fill-amber-700">I</text>
-                            </svg>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="bg-amber-50 p-2 rounded-lg"><span class="font-bold text-amber-700">Định nghĩa:</span> Chia một góc thành hai phần bằng nhau.</p>
-                            <div class="p-3 bg-white border border-amber-100 rounded-xl shadow-inner">
-                                <p class="font-bold mb-1 text-amber-800">📌 Tính chất:</p>
-                                <ul class="space-y-1 text-slate-600 mb-0 ps-0">
-                                    <li>• Giao nhau tại <strong>Tâm I</strong>.</li>
-                                    <li>• I là tâm đường tròn <strong>nội tiếp</strong> (cách đều 3 cạnh).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="mt-12 p-6 bg-slate-800 text-white rounded-3xl relative overflow-hidden shadow-xl">
-                <div class="absolute top-0 right-0 p-4 opacity-10">
-                    <svg width="100" height="100" viewBox="0 0 100 100">
-                        <polygon points="50,10 90,90 10,90" fill="white" />
-                    </svg>
-                </div>
-                <h3 class="text-lg font-bold mb-2 flex items-center">
-                    <span class="mr-2 text-yellow-400">💡</span> Bí kíp ghi nhớ:
-                </h3>
-                <p class="text-slate-300 text-sm leading-relaxed mb-0">
-                    Trong một <strong>tam giác đều</strong>, cả 4 loại đường đặc biệt này đều trùng nhau, và 4 điểm giao nhau (G, H, O, I) cũng trùng làm một. Đây chính là "vẻ đẹp đối xứng" tuyệt đối trong hình học!
-                </p>
-            </div>
-
-            <div class="mt-8 flex justify-between items-end border-t border-slate-200 pt-4 text-slate-400 text-[10px] uppercase tracking-widest">
-                <div class="flex space-x-4">
-                    <span>📚 Toán học THCS</span>
-                    <span>📐 Hình học phẳng</span>
-                    <div className="text-right"> Thầy Duy Anh • THCS Nguyễn An Khương  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+        // Khởi tạo và Render ứng dụng React
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
