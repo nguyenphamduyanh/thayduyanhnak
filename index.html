@@ -139,7 +139,6 @@
             <div class="col-md-4">
                 <div class="card card-custom h-100 shadow-lg p-4" style="border: 3px solid #ff5722; background: linear-gradient(145deg, #fff8e1 0%, #ffecb3 100%); position: relative; overflow: hidden !important; transform: scale(1.05); z-index: 10;">
                     
-                    <!-- Badge nổi bật -->
                     <div style="position: absolute; top: 15px; right: -35px; background: #e63946; color: white; padding: 5px 40px; transform: rotate(45deg); font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">HOT</div>
                     
                     <div class="mb-3" style="color: #e63946;"><i class="fas fa-graduation-cap fa-4x"></i></div>
@@ -155,25 +154,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-custom h-100 shadow-sm p-4">
-                    <div class="mb-3 text-primary"><i class="fas fa-graduation-cap fa-3x"></i></div>
-                    <h5 class="fw-bold">ĐỀ TĂNG CƯỜNG</h5>
-                    <div class="dropdown">
-                        <button class="btn btn-action w-100 mt-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static">Xem chi tiết</button>
-                        <ul class="dropdown-menu w-100 shadow border-0">
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1KYx9Z_ciB4YOG0wITmk63Ioc4ViDyv0_/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 1</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1GLTxYbsYB4XpaEAltjz1nd3sJ26W4Vq8/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 2</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1_PLB5JdV8otP8opkLqOMZZJvDkeCsamW/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 3</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1rx1qeoD4kjyVDauwUiJZFuhOra2SkeEd/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 4</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/1NaNnl-3yZIWRTOClK56mM8w8FKN2Ripq/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 5</a></li>
-                            <li><a class="dropdown-item mobile-link" href="https://drive.google.com/file/d/11octCYxMs-SpJquznBbFNt1EgX9BTnbT/view?usp=sharing" target="_blank">HDG ĐỀ TĂNG CƯỜNG SỐ 6</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><span class="update-date">Cập nhật: 03/04/2026</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-4">
                 <div class="card card-custom h-100 shadow-sm p-4">
                     <div class="mb-3 text-danger"><i class="fas fa-atom fa-3x"></i></div>
@@ -203,7 +184,9 @@
                 </div>
             </div>
         </div>
-    </div><footer class="footer-section">
+    </div>
+    
+    <footer class="footer-section">
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-5 d-flex flex-column align-items-center text-center">
@@ -249,7 +232,6 @@
                     </select>
 
                     <table class="table table-sm table-bordered align-middle">
-                        
                         <tbody id="bang-de-7" style="display: none;">
                             <tr>
                                 <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
@@ -789,7 +771,6 @@
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
                     <button onclick="checkAllAnswers()" class="btn btn-dark w-100 py-2 mt-2">CHẤM CẢ ĐỀ ĐANG CHỌN</button>
                 </div>
@@ -801,7 +782,6 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
-        // Hàm ẩn/hiện bảng dựa vào Select (Hỗ trợ từ đề 7 đến đề 12)
         function toggleDe() {
             const tende = document.getElementById('tenDe').value;
             document.getElementById('bang-de-7').style.display = (tende === 'Đề ôn tập số 7') ? '' : 'none';
