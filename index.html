@@ -231,7 +231,8 @@
                         <option value="Đề ôn tập số 11">Đề ôn tập số 11</option> 
                         <option value="Đề ôn tập số 12">Đề ôn tập số 12</option> 
                         <option value="Đề ôn tập số 13">Đề ôn tập số 13</option> 
-                        <option value="Đề ôn tập số 14" selected>Đề ôn tập số 14</option> 
+                        <option value="Đề ôn tập số 14">Đề ôn tập số 14</option> 
+                        <option value="Đề ôn tập số 15" selected>Đề ôn tập số 15</option> 
                     </select>
 
                     <table class="table table-sm table-bordered align-middle">
@@ -309,6 +310,35 @@
                         </tbody>
 
                         <tbody id="bang-de-13" style="display: none;">
+                            <tr><td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="2"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small><input type="text" class="form-control user-ans" data-cau="3A"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố B:</small><input type="text" class="form-control user-ans" data-cau="3B"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="3">4</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 90px;">Biểu thức S:</small><input type="text" class="form-control user-ans" data-cau="4S"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap">x =</small><input type="text" class="form-control user-ans me-2" data-cau="4x1" style="width: 60px;"><button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span><small class="me-2 text-nowrap">thì h =</small><input type="text" class="form-control user-ans me-2" data-cau="4h1" style="width: 60px;"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap">hoặc x =</small><input type="text" class="form-control user-ans me-2" data-cau="4x2" style="width: 60px;"><button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span><small class="me-2 text-nowrap">thì h =</small><input type="text" class="form-control user-ans me-2" data-cau="4h2" style="width: 60px;"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="3">5</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">Thể tích nước trong giếng:</small><input type="text" class="form-control user-ans" data-cau="5V_nuoc"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">Thể tích gầu đầy nước:</small><input type="text" class="form-control user-ans" data-cau="5V_gau"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">Số vòng đã quay:</small><input type="text" class="form-control user-ans" data-cau="5so_vong"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="5">6</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">6a Tốc độ Long (thập phân):</small><input type="text" class="form-control user-ans" data-cau="6a_Long"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">6a Tốc độ Tùng (thập phân):</small><input type="text" class="form-control user-ans" data-cau="6a_Tung"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Phương:</small><input type="text" class="form-control user-ans" data-cau="6b_Phuong"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Long:</small><input type="text" class="form-control user-ans" data-cau="6b_Long"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Tùng:</small><input type="text" class="form-control user-ans" data-cau="6b_Tung"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                        </tbody>
+
+                        <tbody id="bang-de-14" style="display: none;">
+                            <tr><td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td><td><div class="d-flex align-items-center"><input type="text" class="form-control user-ans" data-cau="2"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="3">3</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap">3a: a =</small><input type="text" class="form-control user-ans me-2" data-cau="3a_a" style="width: 70px;"><button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span><small class="me-2 text-nowrap">b =</small><input type="text" class="form-control user-ans me-2" data-cau="3a_b" style="width: 70px;"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 190px;">3b Xác suất thực nghiệm biến cố A:</small><input type="text" class="form-control user-ans" data-cau="3b"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 190px;">3c Số lần ném thêm tối thiểu:</small><input type="text" class="form-control user-ans" data-cau="3c"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 160px;">4a Diện tích tứ giác ABCD:</small><input type="text" class="form-control user-ans" data-cau="4a"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 160px;">4b x =</small><input type="text" class="form-control user-ans" data-cau="4b"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle">5</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 160px;">Diện tích cần sơn:</small><input type="text" class="form-control user-ans" data-cau="5"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 160px;">Thời gian vòi 1 chảy (giờ):</small><input type="text" class="form-control user-ans" data-cau="6_voi1"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                            <tr><td><div class="d-flex align-items-center"><small class="me-2 text-nowrap" style="width: 160px;">Thời gian vòi 2 chảy (giờ):</small><input type="text" class="form-control user-ans" data-cau="6_voi2"><button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span></div></td></tr>
+                        </tbody>
+
+                        <tbody id="bang-de-15">
                             <tr>
                                 <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
                                 <td>
@@ -322,7 +352,7 @@
                                 <td class="fw-bold text-center bg-light align-middle" rowspan="2">3</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố A:</small>
+                                        <small class="me-2 text-nowrap" style="width: 145px;">Xác suất biến cố A:</small>
                                         <input type="text" class="form-control user-ans" data-cau="3A">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
@@ -331,159 +361,8 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 135px;">Xác suất biến cố B:</small>
+                                        <small class="me-2 text-nowrap" style="width: 145px;">Xác suất biến cố B:</small>
                                         <input type="text" class="form-control user-ans" data-cau="3B">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">4</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 90px;">Biểu thức S:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="4S">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap">x =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="4x1" style="width: 60px;">
-                                        <button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span>
-                                        <small class="me-2 text-nowrap">thì h =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="4h1" style="width: 60px;">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap">hoặc x =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="4x2" style="width: 60px;">
-                                        <button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span>
-                                        <small class="me-2 text-nowrap">thì h =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="4h2" style="width: 60px;">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">5</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">Thể tích nước trong giếng:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5V_nuoc">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">Thể tích gầu đầy nước:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5V_gau">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">Số vòng đã quay:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5so_vong">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="5">6</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">6a Tốc độ Long (thập phân):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6a_Long">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">6a Tốc độ Tùng (thập phân):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6a_Tung">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Phương:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6b_Phuong">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Long:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6b_Long">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 180px;">6b Tốc độ của Tùng:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6b_Tung">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                        <tbody id="bang-de-14">
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" style="width: 50px;">2</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <input type="text" class="form-control user-ans" data-cau="2">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="fw-bold text-center bg-light align-middle" rowspan="3">3</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap">a) a =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="3a_a" style="width: 70px;">
-                                        <button class="btn-mini-check me-3" onclick="checkSingle(this)">Check</button><span class="res-icon me-3"></span>
-                                        <small class="me-2 text-nowrap">b =</small>
-                                        <input type="text" class="form-control user-ans me-2" data-cau="3a_b" style="width: 70px;">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 190px;">b) XSTN biến cố A:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3b">
-                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 190px;">c) Số lần ném thêm tối thiểu:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="3c">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
@@ -492,7 +371,7 @@
                                 <td class="fw-bold text-center bg-light align-middle" rowspan="2">4</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 160px;">a) Diện tích tứ giác ABCD:</small>
+                                        <small class="me-2 text-nowrap" style="width: 100px;">4a Biểu thức A:</small>
                                         <input type="text" class="form-control user-ans" data-cau="4a">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
@@ -501,18 +380,27 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 160px;">b) x =</small>
+                                        <small class="me-2 text-nowrap" style="width: 100px;">4b Giá trị x:</small>
                                         <input type="text" class="form-control user-ans" data-cau="4b">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="fw-bold text-center bg-light align-middle">5</td>
+                                <td class="fw-bold text-center bg-light align-middle" rowspan="2">5</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 160px;">Diện tích cần sơn:</small>
-                                        <input type="text" class="form-control user-ans" data-cau="5">
+                                        <small class="me-2 text-nowrap" style="width: 90px;">5a Thể tích:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5a">
+                                        <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <small class="me-2 text-nowrap" style="width: 90px;">5b Số phút:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="5b">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
@@ -521,8 +409,8 @@
                                 <td class="fw-bold text-center bg-light align-middle" rowspan="2">6</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 160px;">Thời gian vòi 1 chảy (giờ):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6_voi1">
+                                        <small class="me-2 text-nowrap" style="width: 145px;">Chu vi khuôn viên:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6_chuvi">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
@@ -530,8 +418,8 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <small class="me-2 text-nowrap" style="width: 160px;">Thời gian vòi 2 chảy (giờ):</small>
-                                        <input type="text" class="form-control user-ans" data-cau="6_voi2">
+                                        <small class="me-2 text-nowrap" style="width: 145px;">Thời gian:</small>
+                                        <input type="text" class="form-control user-ans" data-cau="6_thoigian">
                                         <button class="btn-mini-check" onclick="checkSingle(this)">Check</button><span class="res-icon"></span>
                                     </div>
                                 </td>
@@ -549,10 +437,9 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxHtWfYiWEaNU-pTKxyIGuh8Ec9IWtuXBuuaDJA_sV4OvTw-ktGykxyf7R6O_bCYL4H/exec"; 
 
-        // Hàm ẩn/hiện bảng được viết gọn lại để tự động quét từ Đề 7 đến Đề 14
         function toggleDe() {
             const tende = document.getElementById('tenDe').value;
-            const dsDe = [7, 8, 9, 10, 11, 12, 13, 14];
+            const dsDe = [7, 8, 9, 10, 11, 12, 13, 14, 15]; // Cập nhật danh sách từ 7 đến 15
             dsDe.forEach(i => {
                 const el = document.getElementById('bang-de-' + i);
                 if (el) el.style.display = (tende === 'Đề ôn tập số ' + i) ? '' : 'none';
